@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: supercampeones
+  password: 'benjiprice'
+  database: supercampeones_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: supercampeones
+  password: 'benjiprice'
+  database: supercampeones_test
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: supercampeones
+  password: 'benjiprice'
+  database: supercampeones_production
