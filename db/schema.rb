@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430210540) do
+ActiveRecord::Schema.define(version: 20170430224007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 20170430210540) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "participations", force: :cascade do |t|
+    t.string   "local"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "publications", force: :cascade do |t|
     t.text     "content",            null: false
     t.datetime "created_at",         null: false
@@ -36,6 +42,12 @@ ActiveRecord::Schema.define(version: 20170430210540) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "team_invitations", force: :cascade do |t|
+    t.string   "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -50,11 +62,23 @@ ActiveRecord::Schema.define(version: 20170430210540) do
     t.index ["name"], name: "index_teams_on_name", unique: true, using: :btree
   end
 
+  create_table "tournament_invitations", force: :cascade do |t|
+    t.string   "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tournaments", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_tournaments_on_name", unique: true, using: :btree
+  end
+
+  create_table "user_invitations", force: :cascade do |t|
+    t.string   "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
