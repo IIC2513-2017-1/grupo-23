@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @publication.image , class: "publication_image"%>
+<p>
+  <strong>Content:</strong>
+  <%= @publication.content %>
+</p>
+
+<%= link_to 'Edit', edit_publication_path(@publication) %> |
+<%= link_to 'Back', publications_path %>

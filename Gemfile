@@ -31,4 +31,5 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'simple_form', '~> 3.4'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
 ruby "2.4.0"
