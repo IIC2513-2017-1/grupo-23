@@ -6,6 +6,11 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'brakeman', '~> 3.5.0', require: false
+  gem 'flay', '~> 2.8.1', require: false
+  gem 'rails_best_practices', '~> 1.18.0', require: false
+  gem 'reek', '~> 4.5.6', require: false
+  gem 'rubocop', '~> 0.47.1', require: false
 end
 
 group :development do
