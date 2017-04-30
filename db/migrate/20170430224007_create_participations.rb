@@ -6,7 +6,7 @@ class AddTeamToParticipation < ActiveRecord::Migration[5.0]
 end
 class AddParticipationToMatch < ActiveRecord::Migration[5.0]
   def change
-    add_reference :matchs, :participation, foreign_key: true
+    add_reference :matches, :participation, foreign_key: true
   end
 end
 class AddUserToTeam < ActiveRecord::Migration[5.0]

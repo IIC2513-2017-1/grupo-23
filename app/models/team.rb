@@ -7,7 +7,7 @@ class Team < ApplicationRecord
    has_many :users
  has_many :user_invitations
  has_many :tournament_invitations
- has_and_belongs_to_many :matchs
+ has_and_belongs_to_many :matches
 
 
 end
