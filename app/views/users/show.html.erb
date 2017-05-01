@@ -5,10 +5,10 @@
 </div>
 <div class="user-activity">
   <div class="publication-stream">
-    <h2>Publicaciones: <%= @user.publications.size %></h2>
+    <h2>Publicaciones: <%= @user.publication.size %></h2>
     <ol>
-      <% @user.publications.each do |publication| %>
-        <%= render 'publications/preview', publication: publication %>
+      <% @user.publication.each do |publication| %>
+        <%= render 'publication/preview', publication: publication %>
       <% end %>
     </ol>
   </div>
