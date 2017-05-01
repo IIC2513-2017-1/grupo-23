@@ -1,29 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Publications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="publications publication-stream">
+  <h1>Publicaciones: <%= @publications.size %></h1>
+  <ol>
     <% @publications.each do |publication| %>
-      <tr>
-        <td><%= image_tag publication.image , class: "publication_image"%></td>
-        <td><%= publication.content %></td>
-        <td><%= link_to 'Show', publication %></td>
-        <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
-        <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render 'publications/preview', publication: publication %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Publication', new_publication_path %>
+  </ol>
+  <%= link_to 'New Publication', new_publication_path, class: 'new-button' %>
+</div>

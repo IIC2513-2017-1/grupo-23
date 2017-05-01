@@ -3,4 +3,8 @@ class User < ApplicationRecord
                        confirmation: true, allow_blank: false
   validates :email, presence: true, uniqueness: true, allow_blank: false,
                     format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
+  def full_name
+    "#{name} #{lastname}"
+  end
 end
