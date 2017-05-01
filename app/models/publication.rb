@@ -3,4 +3,7 @@ class Publication < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates :content, presence: true, length: { minimum: 6, maximum: 500 },
    allow_blank: false
+
+   belongs_to :user
+ has_many :comments
 end
