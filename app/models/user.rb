@@ -16,5 +16,4 @@ class User < ApplicationRecord
   def full_name
     "#{name} #{lastname}"
   end
->>>>>>> origin/navbar
 end
