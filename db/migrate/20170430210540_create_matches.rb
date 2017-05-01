@@ -7,5 +7,6 @@ class CreateMatches < ActiveRecord::Migration[5.0]
       t.integer :local_id
       t.timestamps
     end
+
   end
 end
