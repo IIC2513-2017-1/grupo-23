@@ -9,5 +9,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.timestamps
     end
     add_index :users, :email, unique: true
+    create_table :matches_users, id: false do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :match, index: true
+    end
   end
 end
