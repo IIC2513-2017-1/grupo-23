@@ -1,4 +1,12 @@
+class CreateParticipations <ActiveRecord::Migration[5.0]
+  def change
+    create_table :participations do |t|
+      t.string :local
 
+      t.timestamps
+    end
+  end
+end
 class AddTeamToParticipation < ActiveRecord::Migration[5.0]
   def change
     add_reference :participations, :team, foreign_key: true
@@ -62,7 +70,7 @@ end
 class CreateUser < ActiveRecord::Migration[5.0]
     def change
 
-      create_table :match_users, id: false do |t|
+      create_table :matches_users, id: false do |t|
         t.belongs_to :user, index: true
         t.belongs_to :match, index: true
       end
@@ -70,7 +78,7 @@ class CreateUser < ActiveRecord::Migration[5.0]
 end
 class CreateTournament < ActiveRecord::Migration[5.0]
     def change
-      create_table :tournament_teams, id: false do |t|
+      create_table :tournaments_teams, id: false do |t|
         t.belongs_to :tournament, index: true
         t.belongs_to :match, index: true
       end

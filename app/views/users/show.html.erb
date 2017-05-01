@@ -7,7 +7,7 @@
   <div class="publication-stream">
     <h2>Publicaciones: <%= @user.publications.size %></h2>
     <ol>
-      <% @user.publications.each do |tweet| %>
+      <% @user.publications.each do |publication| %>
         <%= render 'publications/preview', publication: publication %>
       <% end %>
     </ol>

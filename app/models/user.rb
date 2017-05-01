@@ -8,11 +8,11 @@ class User < ApplicationRecord
   belongs_to :team, optional:true
   has_many :user_invitations
   has_many :tournaments
-  has_many :publication
+  has_many :publications
   has_many :comments
   has_and_belongs_to_many :matches
 
-  
+
   def full_name
     "#{name} #{lastname}"
   end

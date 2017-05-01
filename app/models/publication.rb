@@ -4,6 +4,6 @@ class Publication < ApplicationRecord
   validates :content, presence: true, length: { minimum: 6, maximum: 500 },
    allow_blank: false
 
-   belongs_to :user
- has_many :comments
+  belongs_to :user
+  has_many :comments
 end
