@@ -1,3 +1,22 @@
-// Place all the styles related to the Publications controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.content {
+  display: block;
+}
+
+.publication-stream {
+  ol {
+    padding-left: 10px;
+    list-style: none;
+    height: 300px;
+    overflow: scroll;
+    width: 90%;
+  }
+
+  .publication-stream-item {
+    padding: 10px 0;
+    background-color: white;
+  }
+
+  .publication-stream-item:not(:first-child) {
+    border-top: 1px solid #e8e8e8;
+  }
+}
