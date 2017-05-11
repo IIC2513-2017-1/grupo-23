@@ -16,6 +16,7 @@
 
 .publication-stream, .user-followers, .user-following {
   width: 32%;
+  height: 420px;
   background-color: white;
   text-align: left;
   padding-left: 10px;
@@ -39,12 +40,6 @@
   color: #657786;
   font-size: 18px;
   padding-left: 10px;
-}
-
-.edit-button {
-  border-color: #818488;
-  color: #818488;
-  margin-left: 10px;
 }
 
 .user-followers, .user-following {
