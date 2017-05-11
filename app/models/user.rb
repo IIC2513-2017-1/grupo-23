@@ -10,7 +10,8 @@ class User < ApplicationRecord
   has_many :tournaments
   has_many :publications
   has_many :comments
-  has_and_belongs_to_many :matches
+  has_many :goals
+  has_many :maches, through: :goals
 
 
   def full_name

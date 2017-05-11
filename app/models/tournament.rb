@@ -4,6 +4,7 @@ class Tournament < ApplicationRecord
 
    belongs_to :user
  has_many :tournament_invitations
- has_and_belongs_to_many :teams
+  has_many :participates
+ has_many :teams, through: :participates
  has_many :matches
 end

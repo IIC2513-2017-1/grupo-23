@@ -6,10 +6,7 @@ class CreateTournaments < ActiveRecord::Migration[5.0]
       t.timestamps
 
     end
-    create_table :tournaments_teams, id: false do |t|
-      t.belongs_to :tournament, index: true
-      t.belongs_to :match, index: true
-    end
+
     add_index :tournaments, :name, unique: true
   end
 end
