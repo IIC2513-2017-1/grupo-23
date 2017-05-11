@@ -32,4 +32,5 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'simple_form', '~> 3.4'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'bcrypt', '~> 3.1.7'
 ruby "2.4.0"
