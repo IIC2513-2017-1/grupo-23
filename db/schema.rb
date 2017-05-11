@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430223920) do
+ActiveRecord::Schema.define(version: 20170505215923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20170430223920) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "goals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "match_id"
+  end
+
   create_table "matches", force: :cascade do |t|
     t.string   "date",          null: false
     t.string   "result"
@@ -36,11 +43,11 @@ ActiveRecord::Schema.define(version: 20170430223920) do
     t.index ["tournament_id"], name: "index_matches_on_tournament_id", using: :btree
   end
 
-  create_table "matches_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "match_id"
-    t.index ["match_id"], name: "index_matches_users_on_match_id", using: :btree
-    t.index ["user_id"], name: "index_matches_users_on_user_id", using: :btree
+  create_table "participates", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "tournament_id"
+    t.integer  "match_id"
   end
 
   create_table "publications", force: :cascade do |t|
@@ -90,13 +97,6 @@ ActiveRecord::Schema.define(version: 20170430223920) do
     t.integer  "user_id"
     t.index ["name"], name: "index_tournaments_on_name", unique: true, using: :btree
     t.index ["user_id"], name: "index_tournaments_on_user_id", using: :btree
-  end
-
-  create_table "tournaments_teams", id: false, force: :cascade do |t|
-    t.integer "tournament_id"
-    t.integer "match_id"
-    t.index ["match_id"], name: "index_tournaments_teams_on_match_id", using: :btree
-    t.index ["tournament_id"], name: "index_tournaments_teams_on_tournament_id", using: :btree
   end
 
   create_table "user_invitations", force: :cascade do |t|

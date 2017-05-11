@@ -4,10 +4,12 @@ class Team < ApplicationRecord
   validates :name, presence: true, uniqueness: true,
    length: { minimum: 3, maximum: 20 }, allow_blank: false
 
-   has_many :users
+ has_many :users
  has_many :user_invitations
  has_many :tournament_invitations
  has_and_belongs_to_many :matches
+  has_many :participates
+ has_many :tournaments, through: :participates
 
 
 end
