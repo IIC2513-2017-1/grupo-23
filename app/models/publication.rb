@@ -6,4 +6,15 @@ class Publication < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+
+
+  scope :restricted_for, (lambda { |user|
+    where(private: false) unless user
+  })
+
+# Cuando se tengan relaciones de seguir/seguido
+#  scope :followed_by, (lambda { |user|
+#    where(user: user.following) if user
+#  })
+
 end

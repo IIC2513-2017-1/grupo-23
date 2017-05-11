@@ -5,7 +5,9 @@ class PublicationsController < ApplicationController
 
 
   def index
-    @publications = Publication.all
+    @publications = Publication.includes(:user)
+                   .restricted_for(current_user)
+                   .followed_by(current_user)
   end
 
   def show
