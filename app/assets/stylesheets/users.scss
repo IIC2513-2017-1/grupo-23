@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.profile-info, .publication-stream, .user-followers, .user-following {
+.profile-info, .publication-stream, .user-followers, .user-following, .users {
   border: solid 1px #14171a;
   border-radius: 15px;
   margin: 10px 0 0 0;
@@ -14,12 +14,16 @@
   width: 100%;
 }
 
-.publication-stream, .user-followers, .user-following {
+.users, .publication-stream, .user-followers, .user-following {
   width: 32%;
   height: 420px;
   background-color: white;
   text-align: left;
   padding-left: 10px;
+}
+
+.users {
+  width: 99%;
 }
 
 .publication-stream {
@@ -42,7 +46,7 @@
   padding-left: 10px;
 }
 
-.user-followers, .user-following {
+.users, .user-followers, .user-following {
   ol {
     padding-left: 10px;
     list-style: none;
