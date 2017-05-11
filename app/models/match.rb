@@ -8,5 +8,4 @@ class Match < ApplicationRecord
  belongs_to :local, :class_name => 'Team', :foreign_key => 'local_id'
  belongs_to :visitor, :class_name => 'Team', :foreign_key => 'visitor_id'
 
-
 end

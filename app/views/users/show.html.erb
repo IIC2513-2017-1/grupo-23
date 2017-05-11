@@ -1,24 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @user.lastname %>
-</p>
-
-<p>
-  <strong>eMail:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="profile-info">
+  <h1 class="profile-user-name"><%= @user.full_name %></h1>
+  <%= link_to 'Edit', edit_user_path(@user), class: 'edit-button' %>
+  <h2 class="profile-user-email"><%= @user.email %></h2>
+</div>
+<div class="user-activity">
+  <% if @user.publications %>
+    <div class="publication-stream">
+      <h2>Publicaciones: <%= @user.pubications.size %></h2>
+      <ol>
+        <% @user.publications.each do |publication| %>
+          <%= render 'publications/preview', publication: publication %>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+</div>
