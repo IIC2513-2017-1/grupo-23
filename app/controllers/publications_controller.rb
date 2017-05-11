@@ -59,6 +59,6 @@ class PublicationsController < ApplicationController
     end
 
     def publication_params
-      params.require(:publication).permit(:content, :image)
+      params.require(:publication).permit(:content, :image).merge(user_id: current_user.id)
     end
 end

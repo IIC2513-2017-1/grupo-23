@@ -12,6 +12,9 @@
     <header>
       <div id="home">
         <%= link_to 'Home', root_path %>
+        <% if current_user %>
+          <%= link_to 'Perfil', current_user %>
+        <% end %>
       </div>
 
       <nav id="main-menu">
