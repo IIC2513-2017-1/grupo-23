@@ -1,0 +1,16 @@
+<%= simple_form_for(@match) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :date, required: true %>
+    <%= f.input :result %>
+    <%= f.collection_select :visitor_id, Team.all, :id, :name %>
+    <%= f.collection_select :local_id, Team.all, :id, :name %>
+    <%= f.collection_select :tournament_id, Tournament.all, :id, :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
