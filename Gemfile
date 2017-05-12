@@ -20,7 +20,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-
+gem 'faker', '~> 1.7.3'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails', '~> 5.0.2'
 gem 'pg', '~> 0.18'
