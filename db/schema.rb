@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505215923) do
+ActiveRecord::Schema.define(version: 20170511230341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,6 @@ ActiveRecord::Schema.define(version: 20170505215923) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "match_id"
-    t.index ["match_id"], name: "index_goals_on_match_id", using: :btree
-    t.index ["user_id"], name: "index_goals_on_user_id", using: :btree
   end
 
   create_table "matches", force: :cascade do |t|
@@ -50,8 +48,6 @@ ActiveRecord::Schema.define(version: 20170505215923) do
     t.datetime "updated_at",    null: false
     t.integer  "tournament_id"
     t.integer  "match_id"
-    t.index ["match_id"], name: "index_participates_on_match_id", using: :btree
-    t.index ["tournament_id"], name: "index_participates_on_tournament_id", using: :btree
   end
 
   create_table "publications", force: :cascade do |t|
@@ -75,7 +71,6 @@ ActiveRecord::Schema.define(version: 20170505215923) do
   create_table "teams", force: :cascade do |t|
     t.string   "name",                null: false
     t.string   "group"
-    t.integer  "dueno_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "shield_file_name"
@@ -115,24 +110,20 @@ ActiveRecord::Schema.define(version: 20170505215923) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "lastname",   null: false
-    t.string   "email",      null: false
-    t.string   "password",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",            null: false
+    t.string   "lastname",        null: false
+    t.string   "email",           null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "team_id"
+    t.string   "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
   add_foreign_key "comments", "publications"
   add_foreign_key "comments", "users"
-  add_foreign_key "goals", "matches"
-  add_foreign_key "goals", "users"
   add_foreign_key "matches", "tournaments"
-  add_foreign_key "participates", "matches"
-  add_foreign_key "participates", "tournaments"
   add_foreign_key "publications", "users"
   add_foreign_key "tournament_invitations", "teams"
   add_foreign_key "tournament_invitations", "tournaments"
