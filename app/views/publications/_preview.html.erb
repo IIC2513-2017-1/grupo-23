@@ -8,7 +8,7 @@
     <span class="publication-author-email"><%=" #{publication.user.email}" %></span>
   </div>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(tweet.created_at) %> ago
+    Posted <%= time_ago_in_words(publication.created_at) %> ago
   </span>
   <span class="content">
     <%= publication.content %>
