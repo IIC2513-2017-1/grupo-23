@@ -51,4 +51,19 @@ end
     dueno_id: u.id
   )
 end
+tournament_ids = Tournament.pluck(:id)
+team_ids = Team.pluck(:id)
+1.times do
+  local = team_ids.sample
+  visitor_id = team_ids.sample
+  if local == visitor
+    local = (local + 1) % u.id
+  end
+  Match.create(
+    date: Faker::Date.backward(14) ,
+    result:Team.find([local, visitor].sample).name,
+    visitor_id: visitor,
+    local: local
+  )
+end
 
