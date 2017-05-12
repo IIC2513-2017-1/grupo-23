@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   include Secured
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in?, only: %i[edit update destroy]
-
+  before_action :is_current_user?, only: %i[edit update destroy]
 
   def index
     @users = User.all
@@ -56,7 +56,12 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
-    
+
+    def is_current_user?
+    redirect_to(root_path, notice: '¡Acceso no autorizado!')
+                unless @user == current_user
+    end
+
     def user_params
       params.require(:user).permit(:name, :lastname, :email, :password,
       :password_confirmation)
