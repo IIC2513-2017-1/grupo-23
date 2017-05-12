@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20170511230341) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "tournament_id"
-    t.integer  "match_id"
-    t.index ["match_id"], name: "index_participates_on_match_id", using: :btree
+    t.integer  "team_id"
+    t.index ["team_id"], name: "index_participates_on_team_id", using: :btree
     t.index ["tournament_id"], name: "index_participates_on_tournament_id", using: :btree
   end
 
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20170511230341) do
   add_foreign_key "goals", "matches"
   add_foreign_key "goals", "users"
   add_foreign_key "matches", "tournaments"
-  add_foreign_key "participates", "matches"
+  add_foreign_key "participates", "teams"
   add_foreign_key "participates", "tournaments"
   add_foreign_key "publications", "users"
   add_foreign_key "tournament_invitations", "teams"

@@ -9,6 +9,7 @@
       <th>Result</th>
       <th>Visitor</th>
       <th>Local</th>
+      <th>Torneo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= match.result %></td>
         <td><%= match.visitor.name %></td>
         <td><%= match.local.name %></td>
+        <td><%= match.tournament.name %></td>
         <td><%= link_to 'Show', match %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
         <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>

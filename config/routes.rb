@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :teams
   resources :comments
   resources :publications
-  resources :users
+  resources :users do
+    resources :tournaments
+    end
   resource :session, only: [:new, :create, :destroy]
   root 'welcome#index'
 end

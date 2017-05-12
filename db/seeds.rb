@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 Tournament.destroy_all
-10.times do
+20.times do
   User.create(
     name: Faker::Name.first_name,
     lastname: Faker::Name.last_name,
@@ -37,7 +37,7 @@ end
 end
 
 
-5.times do
+10.times do
   Team.create(
     name: Faker::Pokemon.unique.name ,
     group: ["A","B","C","D"].sample,
@@ -51,19 +51,21 @@ end
     dueno_id: u.id
   )
 end
+
 tournament_ids = Tournament.pluck(:id)
 team_ids = Team.pluck(:id)
 1.times do
   local = team_ids.sample
-  visitor_id = team_ids.sample
+  visitor = team_ids.sample
   if local == visitor
     local = (local + 1) % u.id
   end
   Match.create(
     date: Faker::Date.backward(14) ,
     result:Team.find([local, visitor].sample).name,
+    local_id: local,
     visitor_id: visitor,
-    local: local
+    tournament_id: tournament_ids.sample
   )
 end
 

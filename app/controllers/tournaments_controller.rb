@@ -4,7 +4,10 @@ class TournamentsController < ApplicationController
   # GET /tournaments
   # GET /tournaments.json
   def index
-    @tournaments = Tournament.all
+    @tournaments = Tournament.all 
+    if params.has_key?(:user_id)
+      @tournaments = Tournament.where(user_id: params[:user_id])
+    end
   end
 
   # GET /tournaments/1
@@ -28,6 +31,12 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       if @tournament.save
+        team = params[:tournament][:team_ids]
+        (1..6).each do |x|
+          (x + 1..6).each do |y|
+            Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+          end
+        end
         format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
         format.json { render :show, status: :created, location: @tournament }
       else
@@ -41,7 +50,17 @@ class TournamentsController < ApplicationController
   # PATCH/PUT /tournaments/1.json
   def update
     respond_to do |format|
+      
       if @tournament.update(tournament_params)
+        team = params[:tournament][:team_ids]
+        @tournament.matches.each do |l|
+          l.destroy
+        end
+        (1..6).each do |x|
+          (x + 1..6).each do |y|
+            Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+          end
+        end
         format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
         format.json { render :show, status: :ok, location: @tournament }
       else

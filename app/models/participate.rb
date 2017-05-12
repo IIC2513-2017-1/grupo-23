@@ -1,4 +1,4 @@
 class Participate < ApplicationRecord
     belongs_to :tournament
-    belongs_to :match
+    belongs_to :team
 end
