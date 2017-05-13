@@ -60,11 +60,10 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :lastname, :email, :password,
       :password_confirmation)
     end
-    def is_current_user?
-    redirect_to(root_path, notice: '¡Acceso no autorizado!')
-                unless @user == current_user
-    end
 
-    
-  end
+    def is_current_user?
+      unless @user == current_user
+        redirect_to(root_path, alert: '¡Acceso no autorizado!')
+      end
+    end
 end

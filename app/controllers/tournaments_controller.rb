@@ -1,5 +1,7 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: [:show, :edit, :update, :destroy]
+  before_action :is_current_user?, only: [:edit ,:update ,:destroy]
+  before_action :is_set_current_user?, only: [:create, :new]
 
   # GET /tournaments
   # GET /tournaments.json
@@ -28,6 +30,8 @@ class TournamentsController < ApplicationController
   # POST /tournaments.json
   def create
     @tournament = Tournament.new(tournament_params)
+
+    @tournament.user = current_user
 
     respond_to do |format|
       if @tournament.save
@@ -88,6 +92,18 @@ class TournamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
-      params.require(:tournament).permit(:name, :user_id)
+      params.require(:tournament).permit(:name)
+    end
+
+    def is_set_current_user?
+      unless current_user
+        redirect_to(tournaments_path, alert: '¡Acceso no autorizado!')
+      end
+    end
+
+    def is_current_user?
+      unless Tournament.find(params[:id]).user == current_user
+        redirect_to(tournaments_path, alert: '¡Acceso no autorizado!')
+      end
     end
 end

@@ -63,6 +63,13 @@ nav ul{
     }
 }
 
+ol {
+    list-style: none;
+    height: 45em;
+    overflow: overlay;
+    width: 100%;
+  }
+
 
 
 
