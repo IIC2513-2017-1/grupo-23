@@ -12,12 +12,12 @@
 
 <p>
   <strong>Visitor:</strong>
-  <%= @match.visitor %>
+  <%= @match.visitor.name %>
 </p>
 
 <p>
   <strong>Local:</strong>
-  <%= @match.local %>
+  <%= @match.local.name %>
 </p>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
