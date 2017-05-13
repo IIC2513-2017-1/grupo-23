@@ -73,7 +73,10 @@ ol {
 
 
 
-
+tr {
+    float: left;
+    width: 33%;
+}
 
 
 

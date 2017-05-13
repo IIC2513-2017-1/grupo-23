@@ -36,6 +36,20 @@ end
   )
 end
 
+30.times do
+  Publication.create(
+    content: Faker::Lorem.paragraph,
+    user_id: user_ids.sample,
+  )
+end
+5.times do
+  Publication.create(
+    content: Faker::Lorem.paragraph,
+    user_id: u.id,
+  )
+end
+
+
 
 10.times do
   Team.create(
@@ -54,7 +68,7 @@ end
 
 tournament_ids = Tournament.pluck(:id)
 team_ids = Team.pluck(:id)
-1.times do
+15.times do
   local = team_ids.sample
   visitor = team_ids.sample
   if local == visitor

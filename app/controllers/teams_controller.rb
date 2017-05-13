@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-
+  before_action :is_current_user?, only: [:edit ,:update ,:destroy]
+  before_action :is_set_current_user?, only: [:create, :new]
   # GET /teams
   # GET /teams.json
   def index
@@ -25,7 +26,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-
+    @team.dueno = current_user
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
@@ -70,5 +71,16 @@ class TeamsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:name, :group, :shield)
+    end
+    def is_set_current_user?
+      unless current_user
+        redirect_to(teams_path, alert: '¡Acceso no autorizado!')
+      end
+    end
+
+    def is_current_user?
+      unless Team.find(params[:id]).dueno == current_user
+        redirect_to(teams_path, alert: '¡Acceso no autorizado!')
+      end
     end
 end

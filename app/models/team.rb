@@ -10,6 +10,7 @@ class Team < ApplicationRecord
  has_and_belongs_to_many :matches
   has_many :participates
  has_many :tournaments, through: :participates
+ belongs_to :dueno, :class_name => 'User', :foreign_key => 'dueno_id'
 
 
 end
