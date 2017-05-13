@@ -56,15 +56,15 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
     end
-
+    def user_params
+      params.require(:user).permit(:name, :lastname, :email, :password,
+      :password_confirmation)
+    end
     def is_current_user?
     redirect_to(root_path, notice: '¡Acceso no autorizado!')
                 unless @user == current_user
     end
 
-    def user_params
-      params.require(:user).permit(:name, :lastname, :email, :password,
-      :password_confirmation)
-    end
+    
   end
 end
