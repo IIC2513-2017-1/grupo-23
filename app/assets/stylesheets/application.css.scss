@@ -20,6 +20,10 @@ body {
   padding-top: 20px;
 }
 
+main {
+	padding-top: 20px;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Ubuntu', sans-serif;
 	font-weight: 300;
@@ -104,7 +108,6 @@ footer {
   position: relative;
   bottom: 0;
   left: 5%;
-	top: 20px;
 }
 
 #license, #project {
@@ -113,18 +116,20 @@ footer {
   vertical-align: middle;
 }
 
+/* User styles */
+
+
+
+
 
 /* Publication styles */
-
 .publication_image {
   height: 200px;
   width: 200px;
 }
-
 .content {
   display: block;
 }
-
 .publication-stream {
   ol {
 		padding: 10px;
@@ -135,14 +140,11 @@ footer {
 		align-self: center;
 		display: block;
   }
-
   .publication-stream-item {
     @include background-tile;
 		display: flex;
 		margin-bottom: 20px;
-
 		.publication-stream-item-left {
-
 			.publication-author-name {
 				a {
 					text-decoration: none;
@@ -150,28 +152,23 @@ footer {
 				}
 			}
 		}
-
 		.publication-stream-item-right {
 			padding-left: 10px;
 		}
 	}
 }
-
 .publications.publication-stream {
   width: 99%;
 }
-
 .timestamp {
 	color: #8c8c8c;
 }
 
 /* Team styles */
-
 .team_shield {
   height: 100px;
   width: 100px;
 }
-
 .teams {
     float: left;
     width: 49%;
@@ -182,7 +179,17 @@ footer {
 
 /* Other styles */
 
-.new-button, .edit-button {
+.form-style {
+	@include background-tile;
+	h1 {
+		margin-top: 0;
+	}
+	width: 500px;
+	margin: 0 auto;
+
+}
+
+.btn-custom1 {
 	color: darken(#f1c40f, 5%);
 	background-color: #fff;
 	border: 1px solid darken(#f1c40f, 5%);
@@ -193,6 +200,21 @@ footer {
 	&:hover {
 		text-decoration: none;
 		background-color: darken(#f1c40f, 5%);
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+
+.btn-custom2 {
+	color: #333;
+	background-color: #fff;
+	border: 1px solid #222;
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: #333;
 		color: #fff;
 		transition: 0.5s;
 	}
