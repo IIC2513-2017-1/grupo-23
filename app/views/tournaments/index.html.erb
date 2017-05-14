@@ -14,11 +14,12 @@
   <tbody>
     <% @tournaments.each do |tournament| %>
       <tr>
-        <td><%= tournament.name %></td>
+        <td><%= link_to tournament.name, tournament %></td>
         <td><%= tournament.user.name %></td>
-        <td><%= link_to 'Show', tournament %></td>
+        <% if tournament.user == current_user%>
         <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
         <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
