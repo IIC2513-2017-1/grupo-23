@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_attached_file :shield, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :shield, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://lorempixel.com/100/100"
   validates_attachment_content_type :shield, content_type: /\Aimage\/.*\z/
   validates :name, presence: true, uniqueness: true,
    length: { minimum: 3, maximum: 20 }, allow_blank: false

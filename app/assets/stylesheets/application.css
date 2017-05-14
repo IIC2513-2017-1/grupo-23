@@ -71,20 +71,6 @@ ol {
   }
 
 
-
-
-tr {
-    float: left;
-    width: 33%;
-}
-
-
-
-
-
-
-
-
 main {
   margin: 0 15px;
 }
@@ -125,4 +111,20 @@ footer {
 
  .checkbox {
     display: grid;
+}
+
+.teams {
+    float: left;
+    width: 49%;
+    background: gray;
+    border-color: currentColor;
+    border-style: solid;
+}
+
+li.publication-stream-item {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    margin-bottom: 4%;
+    border-style: solid;
 }
