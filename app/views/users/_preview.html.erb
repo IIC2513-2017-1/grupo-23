@@ -5,11 +5,9 @@
       <%= "#{user.full_name} " %>
       </strong>
     </span>
+    <br>
     <span class="user-email">
       <%= link_to user.email, user_path(user) %>
     </span>
   </div>
-  <span class="timestamp">
-    Joined <%= time_ago_in_words(user.created_at) %> ago
-  </span>
 </li>
