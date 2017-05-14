@@ -1,20 +1,21 @@
 <li class="publication-stream-item">
-  <div class="author-info">
-    <span class="publication-author-name">
-    Autor
-      <strong>
-       <%= "#{publication.user.full_name}" %>
-      </strong>
+
+  <div class="publication-stream-item-left">
+    <%= image_tag(publication.image, class: "publication_image") %>
+    <div class="author-info">
+      <span class="publication-author-name">Autor
+        <strong><%= link_to "#{publication.user.full_name}", publication.user %></strong>
+      </span>
+    </div>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(publication.created_at) %> ago
     </span>
-    <br>
-    Email
-    <span class="publication-author-email"><%= link_to publication.user.email, publication.user %></span>
   </div>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(publication.created_at) %> ago
-  </span>
-  <br>
-  <span class="content">
-    <%= publication.content %>
-  </span>
+
+  <div class="publication-stream-item-right">
+    <span class="content">
+      <%= publication.content %>
+    </span>
+
+  </div>
 </li>

@@ -11,11 +11,9 @@
     <div class="nav-wrapper">
         <nav>
           <ul class="main-menu">
-            
+            <li class="nav-brand"><%= link_to 'Supercampeones', root_path %></li>
             <% if current_user %>
               <li><%= link_to 'Perfil', current_user %></li>
-            <% else%>
-              <li><%= link_to 'Home', root_path %></li>
             <% end %>
             <li><%= link_to 'Usuarios', users_path %></li>
             <li><%= link_to 'Publicaciones', publications_path %></li>
@@ -27,7 +25,7 @@
 
           <ul class="user-bar">
             <% if current_user %>
-              <div class="name">Bienvenido, <%= current_user.name %></div>
+              <li class="name">Bienvenido, <%= current_user.name %></li>
               <li><%= link_to 'Salir', session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to 'Ingresar', new_session_path %></li>
