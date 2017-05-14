@@ -104,6 +104,7 @@ footer {
   position: relative;
   bottom: 0;
   left: 5%;
+	top: 20px;
 }
 
 #license, #project {
@@ -180,10 +181,21 @@ footer {
 }
 
 /* Other styles */
+
 .new-button, .edit-button {
-	border-color: #818488;
-	color: #818488;
-	margin-left: 10px;
+	color: darken(#f1c40f, 5%);
+	background-color: #fff;
+	border: 1px solid darken(#f1c40f, 5%);
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+		background-color: darken(#f1c40f, 5%);
+		color: #fff;
+		transition: 0.5s;
+	}
 }
 
 .checkbox {
