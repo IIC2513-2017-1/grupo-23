@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :goals
   has_many :maches, through: :goals
+  has_many :maches, through: :tournaments
 
 
   def full_name

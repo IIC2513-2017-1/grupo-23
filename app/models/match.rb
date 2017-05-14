@@ -9,4 +9,5 @@ class Match < ApplicationRecord
  belongs_to :visitor, :class_name => 'Team', :foreign_key => 'visitor_id'
 
 
+
 end

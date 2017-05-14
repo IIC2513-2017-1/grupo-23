@@ -32,46 +32,55 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(tournament_params)
 
     @tournament.user = current_user
-
-    respond_to do |format|
-      if @tournament.save
-        team = params[:tournament][:team_ids]
-        (1..6).each do |x|
-          (x + 1..6).each do |y|
-            Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+    if params[:tournament][:team_ids].size == 7
+      respond_to do |format|
+        if @tournament.save
+          team = params[:tournament][:team_ids]
+          (1..6).each do |x|
+            (x + 1..6).each do |y|
+              Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+            end
           end
+          format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
+          format.json { render :show, status: :created, location: @tournament }
+        else
+          format.html { render :new }
+          format.json { render json: @tournament.errors, status: :unprocessable_entity }
         end
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
-        format.json { render :show, status: :created, location: @tournament }
-      else
-        format.html { render :new }
-        format.json { render json: @tournament.errors, status: :unprocessable_entity }
       end
+    else
+      redirect_to @tournament, notice: 'ingrese solo 6 partidos.'
     end
+
   end
 
   # PATCH/PUT /tournaments/1
   # PATCH/PUT /tournaments/1.json
   def update
-    respond_to do |format|
-      
-      if @tournament.update(tournament_params)
-        team = params[:tournament][:team_ids]
-        @tournament.matches.each do |l|
-          l.destroy
-        end
-        (1..6).each do |x|
-          (x + 1..6).each do |y|
-            Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+    if params[:tournament][:team_ids].size == 7
+      respond_to do |format|
+        
+        if @tournament.update(tournament_params)
+          team = params[:tournament][:team_ids]
+          @tournament.matches.each do |l|
+            l.destroy
           end
+          (1..6).each do |x|
+            (x + 1..6).each do |y|
+              Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+            end
+          end
+          format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
+          format.json { render :show, status: :ok, location: @tournament }
+        else
+          format.html { render :edit }
+          format.json { render json: @tournament.errors, status: :unprocessable_entity }
         end
-        format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tournament }
-      else
-        format.html { render :edit }
-        format.json { render json: @tournament.errors, status: :unprocessable_entity }
       end
+    else
+      redirect_to edit_tournament_path(@tournament), notice: 'ingrese solo 6 partidos.'
     end
+    
   end
 
   # DELETE /tournaments/1

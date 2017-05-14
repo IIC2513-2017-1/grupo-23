@@ -5,11 +5,12 @@
 </div>
 
 <div class="user-activity">
-  <div class="publication-stream">
+  <div class="publication-stream user">
     <h2>Publicaciones: <%= @user.publications.size %></h2>
     <ol>
       <% @user.publications.each do |p| %>
         <%= render 'publications/preview', publication: p %>
       <% end %>
     </ol>
+    <%= link_to 'Nueva Publicación', new_publication_path, class: 'new-button' %>
   </div>

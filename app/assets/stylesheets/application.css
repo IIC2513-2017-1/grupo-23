@@ -63,14 +63,6 @@ nav ul{
     }
 }
 
-ol {
-    list-style: none;
-    height: 45em;
-    overflow: overlay;
-    width: 100%;
-  }
-
-
 main {
   margin: 0 15px;
 }
@@ -128,4 +120,13 @@ li.publication-stream-item , li.user-stream-item{
     margin-bottom: 1%;
     border-style: solid;
     padding: 10px;
+}
+ol {
+    list-style: none;
+    height: 45em;
+    overflow: overlay;
+    width: 100%;
+  }
+.user ol{
+  height: 30em;
 }
