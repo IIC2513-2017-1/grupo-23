@@ -130,6 +130,7 @@ footer {
 .content {
   display: block;
 }
+
 .publication-stream {
   ol {
 		padding: 10px;
@@ -143,8 +144,10 @@ footer {
   .publication-stream-item {
     @include background-tile;
 		display: flex;
+		flex-flow: row wrap;
 		margin-bottom: 20px;
 		.publication-stream-item-left {
+			order: 1;
 			.publication-author-name {
 				a {
 					text-decoration: none;
@@ -153,7 +156,13 @@ footer {
 			}
 		}
 		.publication-stream-item-right {
+			order: 2;
 			padding-left: 10px;
+			display: flex;
+			flex-direction: column;
+		}
+		.publication-stream-comment {
+			order: 3;
 		}
 	}
 }
@@ -212,6 +221,7 @@ footer {
 	padding: 8px 20px;
 	border-radius: 5px;
 	font-family: 'Ubuntu', sans-serif;
+	text-decoration: none;
 	&:hover {
 		text-decoration: none;
 		background-color: #333;

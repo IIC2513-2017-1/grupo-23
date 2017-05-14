@@ -16,6 +16,12 @@
     <span class="content">
       <%= publication.content %>
     </span>
+  </div>
 
+
+
+  <div class="publication-stream-comment">
+    <%= render publication.comments %>
+    <%= link_to 'Comentar', new_publication_comment_path(publication), class: 'btn-custom2' %>
   </div>
 </li>
