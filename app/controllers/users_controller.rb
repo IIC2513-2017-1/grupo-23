@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :lastname, :email, :password,
-      :password_confirmation)
+      :password_confirmation, :juega, :team_id)
     end
 
     def is_current_user?
