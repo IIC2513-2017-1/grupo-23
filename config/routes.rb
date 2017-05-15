@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :tournaments
   resources :teams
   resources :comments
-  resources :publications
+  resources :publications do
+    resources :comments
+  end
   resources :users do
     resources :tournaments
     end
