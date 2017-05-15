@@ -1,3 +1,4 @@
+
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -19,11 +20,6 @@
   <div class="field">
     <%= f.label :lastname %>
     <%= f.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= f.label :juega, '¿es jugador?' %>
-    <%= f.check_box :juega %>
   </div>
 
   <div class="field">
