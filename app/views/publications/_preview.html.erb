@@ -1,7 +1,9 @@
 <li class="publication-stream-item">
 
   <div class="publication-stream-item-left">
-    <%= image_tag(publication.image, class: "publication_image") %>
+    <% if publication.image %>
+      <%= image_tag(publication.image, class: "publication_image") %>
+    <% end %>
     <div class="author-info">
       <span class="publication-author-name">Autor
         <strong><%= link_to "#{publication.user.full_name}", publication.user %></strong>
