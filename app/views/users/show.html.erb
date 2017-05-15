@@ -2,14 +2,6 @@
   <h1 class="profile-user-name"><%= @user.full_name %></h1>
   <%= link_to 'Edit', edit_user_path(@user), class: 'edit-button' if @user == current_user%>
   <h2 class="profile-user-email"><%= @user.email %></h2>
-  <%if @user.team%>
-    <%if @user.juega == 1%>
-      <h2 class="profile-user-team"> jugador de:
-    <%else%>
-      <h2 class="profile-user-team"> Hincha de:
-    <%end%>
-     <%= @user.team.name %></h2>
-  <%end%>
 </div>
 
 <div class="user-activity">
@@ -20,5 +12,5 @@
         <%= render 'publications/preview', publication: p %>
       <% end %>
     </ol>
-    <%= link_to 'Nueva Publicación', new_publication_path, class: 'new-button' %>
+    <%= link_to 'Nueva Publicación', new_publication_path, class: 'button-custom1' %>
   </div>
