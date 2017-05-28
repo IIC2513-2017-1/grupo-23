@@ -26,6 +26,11 @@
     <%= f.label :email %>
     <%= f.email_field :email, required: true %>
   </div>
+  <div class="field">
+      <%= f.label :juega, '¿es jugador?' %>
+      <%= f.check_box :juega %>
+  </div>
+
 
   <div class="field">
     <%= f.label :password %>

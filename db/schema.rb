@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170515023627) do
     t.integer  "team_id"
     t.string   "password_digest"
     t.integer  "jugador"
+    t.integer  "juega"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end

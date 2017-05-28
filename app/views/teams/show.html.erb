@@ -14,4 +14,21 @@
   <%= link_to 'Edit', edit_team_path(@team) %> |
   <%= link_to 'Destroy', @team, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%end %>
+<h2>Jugadores</h2>
+ <ol>
+   <% @team.users.each do |j| %>
+     <%if j.juega == 1%>
+       <li> <%= j.name  %></li>
+     <%end%> 
+   <% end %>
+ </ol>
+ <h2>Hinchas</h2>
+ <ol>
+   <% @team.users.each do |j| %>
+     <%if j.juega == 0%>
+       <li> <%= j.name  %></li>
+     <%end%> 
+   <% end %>
+ </ol>
+  
 <%= link_to 'Back', teams_path %>

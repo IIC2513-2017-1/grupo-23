@@ -8,7 +8,7 @@ class Team < ApplicationRecord
  has_many :user_invitations
  has_many :tournament_invitations
  has_and_belongs_to_many :matches
-  has_many :participates
+ has_many :participates
  has_many :tournaments, through: :participates
  belongs_to :dueno, :class_name => 'User', :foreign_key => 'dueno_id'
 
