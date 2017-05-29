@@ -1,11 +1,11 @@
 <li class="publication-stream-item">
 
   <div class="publication-stream-item-left">
-    <% if publication.image %>
+    <% if publication.image.url != "/images/original/missing.png" %>
       <%= image_tag(publication.image, class: "publication_image") %>
     <% end %>
     <div class="author-info">
-      <span class="publication-author-name">Autor
+      <span class="publication-author-name">
         <strong><%= link_to "#{publication.user.full_name}", publication.user %></strong>
       </span>
     </div>
@@ -19,8 +19,6 @@
       <%= publication.content %>
     </span>
   </div>
-
-
 
   <div class="publication-stream-comment">
     <%= render publication.comments %>
