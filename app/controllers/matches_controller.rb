@@ -70,7 +70,7 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:date, :result, :visitor_id, :local_id, :tournament_id)
+      params.require(:match).permit(:date, :ganador, :visitor_id, :local_id, :tournament_id)
     end
     def is_created_by_current_user?
       unless Match.find(params[:id]).tournament.user == current_user

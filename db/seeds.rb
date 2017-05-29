@@ -87,7 +87,7 @@ tournament_ids = Tournament.pluck(:id)
   end
   Match.create(
     date: Faker::Date.backward(14) ,
-    result:Team.find([local, visitor].sample).name,
+    ganador_id:[local, visitor].sample,
     local_id: local,
     visitor_id: visitor,
     tournament_id: tournament_ids.sample
