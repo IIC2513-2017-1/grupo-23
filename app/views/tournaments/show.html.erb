@@ -20,31 +20,32 @@
       <% count = 0 %>
       <% @tournament.teams.each do |team| %>
         <tr>
-          <td><%= count+1 %></td>
+          <% count += 1 %>
+          <td><%= count %></td>
           <td><%= team.name %></td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 
+
 <div class="matches-table">
-  <h3>Partidos</h3>
+  <h3>Partidos jugados</h3>
   <table>
     <thead>
       <tr>
-        <th>Date</th>
-        <th>Result</th>
-        <th>Visitor</th>
+        <th>Fecha</th>
+        <th>Resultado</th>
+        <th>Visitante</th>
         <th>Local</th>
         <th colspan="3"></th>
       </tr>
     </thead>
-
     <tbody>
       <% @tournament.matches.each do |match| %>
         <tr>

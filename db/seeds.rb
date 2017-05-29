@@ -85,11 +85,14 @@ tournament_ids = Tournament.pluck(:id)
   if local == visitor
     local = (local + 1) % u.id
   end
+  t = Tournament.find(tournament_ids.sample)
+  t.team_ids = t.team_ids<<(local)
+  t.team_ids = t.team_ids<<(visitor)
   Match.create(
     date: Faker::Date.backward(14) ,
     ganador_id:[local, visitor].sample,
     local_id: local,
     visitor_id: visitor,
-    tournament_id: tournament_ids.sample
+    tournament_id: t.id
   )
 end
