@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170515023627) do
     t.string   "result"
     t.integer  "visitor_id"
     t.integer  "local_id"
+    t.integer  "ganador_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "tournament_id"

@@ -6,8 +6,11 @@
 </p>
 
 <p>
-  <strong>Result:</strong>
-  <%= @match.result %>
+  <% if @match.ganador %>
+    <strong>Ganador:</strong>
+    <%= @match.ganador.name %>
+  <% end %>
+  
 </p>
 
 <p>
