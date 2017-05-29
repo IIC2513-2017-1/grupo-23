@@ -9,13 +9,13 @@
         <td><%= link_to image_tag(team.shield, class: "team_shield"), team%></td>
         <td>Nombre: <%= team.name %> <br>
             Dueño :  <%= team.dueno.full_name %></td>
-        <td>
-          
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
 <% if current_user%>
   <%= form_for(current_user) do |f| %>
     <%if current_user.team%>
@@ -29,6 +29,7 @@
     </div>
   <% end %>
 <%end%>
+
 <br>
 
 <%= link_to 'New Team', new_team_path %>

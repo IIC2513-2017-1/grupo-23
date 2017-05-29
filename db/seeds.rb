@@ -93,4 +93,3 @@ tournament_ids = Tournament.pluck(:id)
     tournament_id: tournament_ids.sample
   )
 end
-

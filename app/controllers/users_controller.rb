@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        UserMailer.new_user_email(@user).deliver_later
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -33,8 +34,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @team_id = @user.team_id
     respond_to do |format|
       if @user.update(user_params)
+        if @team_id != @user.team_id
+          UserMailer.new_seguidor_email(@user.team, @user).deliver_later
+        end
+        
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

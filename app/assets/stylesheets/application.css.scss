@@ -1,4 +1,3 @@
-
 @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
 
 @mixin background-tile {
@@ -215,6 +214,7 @@ footer {
 }
 
 .btn-custom2 {
+  display: inline-block;
 	color: #333;
 	background-color: #fff;
 	border: 1px solid #222;
