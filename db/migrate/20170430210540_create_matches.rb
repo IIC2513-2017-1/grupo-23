@@ -5,6 +5,7 @@ class CreateMatches < ActiveRecord::Migration[5.0]
       t.string :result
       t.integer :visitor_id
       t.integer :local_id
+      t.integer :ganador_id
       t.timestamps
     end
 

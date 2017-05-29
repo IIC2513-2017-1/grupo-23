@@ -7,6 +7,7 @@ class Match < ApplicationRecord
  belongs_to :tournament
  belongs_to :local, :class_name => 'Team', :foreign_key => 'local_id'
  belongs_to :visitor, :class_name => 'Team', :foreign_key => 'visitor_id'
+ belongs_to :ganador, :class_name => 'Team', :foreign_key => 'ganador_id', optional: true
 
 
 
