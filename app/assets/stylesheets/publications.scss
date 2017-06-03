@@ -1,5 +1,4 @@
 
-
 @mixin background-tile {
 	box-sizing: border-box;
 	background-color: #fff;
@@ -8,27 +7,23 @@
 	padding: 1.5em 1.25em;
 }
 
+* {padding: 0; margin: 0;}
+
 /* Publication styles */
+
 .publication_image {
   height: 200px;
   width: 200px;
 }
-.content {
-  display: block;
-}
+
 
 .publication-stream {
-  ol {
-		padding: 10px;
-    list-style: none;
-    overflow: scroll;
-    width: 97%;
-		height: 550px;
-		align-self: center;
-		display: block;
-  }
   .publication-stream-item {
     @include background-tile;
+		width: 90%;
+		margin: auto;
+
+		
 		display: flex;
 		flex-flow: row wrap;
 		margin-bottom: 20px;
@@ -52,9 +47,7 @@
 		}
 	}
 }
-.publications.publication-stream {
-  width: 99%;
-}
+
 .timestamp {
 	color: #8c8c8c;
 }

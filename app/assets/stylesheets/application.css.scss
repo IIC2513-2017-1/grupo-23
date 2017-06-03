@@ -31,7 +31,7 @@ body {
 	padding-top: 20px;
 	width: 100%;
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column wrap;
 }
 
 header {
@@ -43,6 +43,7 @@ main {
 	padding-top: 20px;
 	margin: auto;
 	min-height: 650px;
+	width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

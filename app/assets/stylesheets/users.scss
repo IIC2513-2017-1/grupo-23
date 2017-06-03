@@ -1,8 +1,20 @@
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
+}
+
+.users {
+  @include background-tile;
+}
+
 .user-activity {
   text-align: center;
 }
 
-.profile-info, .publication-stream, .user-followers, .user-following, .users {
+.profile-info, .user-followers, .user-following, .users {
   border: solid 1px #14171a;
   border-radius: 15px;
   margin: 10px 0 0 0;
@@ -14,7 +26,7 @@
   width: 100%;
 }
 
-.users, .publication-stream, .user-followers, .user-following {
+.users, .user-followers, .user-following {
   width: 32%;
   height: 420px;
   background-color: white;
@@ -22,13 +34,7 @@
   padding-left: 10px;
 }
 
-.users {
-  width: 99%;
-}
 
-.publication-stream {
-  float: left;
-}
 
 .user-following {
   float: right;
