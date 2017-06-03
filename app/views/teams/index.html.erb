@@ -1,35 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Teams</h1>
-
-<table>
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr class="teams">
-        <td><%= link_to image_tag(team.shield, class: "team_shield"), team%></td>
-        <td>Nombre: <%= team.name %> <br>
-            Dueño :  <%= team.dueno.full_name %></td>
-      </tr>
+<div class="teams-stream">
+  <h1>Teams</h1>
+  <table>
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr class="teams">
+          <td><%= link_to image_tag(team.shield, class: "team_shield"), team%></td>
+          <td>Nombre: <%= team.name %> <br>
+              Dueño :  <%= team.dueno.full_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <% if current_user%>
+    <%= form_for(current_user) do |f| %>
+      <%if current_user.team%>
+        <h5>¿Desea actualizar su equipo?</h5>
+      <% else %>
+        <h5>Seleccione el equipo del que desea participar</h5>
+      <%end%>
+      <%= f.collection_select :team_id, Team.all, :id, :name, prompt: true %>
+      <div class="actions">
+        <%= f.submit "cambiar" %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
+  <%end%>
+</div>
 <br>
-
-<% if current_user%>
-  <%= form_for(current_user) do |f| %>
-    <%if current_user.team%>
-      <h5>¿Desea actualizar su equipo?</h5>
-    <% else %>
-      <h5>Seleccione el equipo del que desea participar</h5>
-    <%end%>
-    <%= f.collection_select :team_id, Team.all, :id, :name, prompt: true %>
-    <div class="actions">
-      <%= f.submit "cambiar" %>
-    </div>
-  <% end %>
-<%end%>
-
-<br>
-
-<%= link_to 'New Team', new_team_path %>
+<div class="new-team-btn">
+  <%= link_to 'New Team', new_team_path , class: 'btn-custom1'%>
+</div>

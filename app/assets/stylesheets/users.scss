@@ -8,65 +8,22 @@
 
 .users {
   @include background-tile;
+	width: 50%;
+	margin: auto;
+	margin-bottom: 40px;
+	ol {
+		list-style: none;
+	}
 }
 
-.user-activity {
-  text-align: center;
+.user-stream-item{
+	padding: 10px;
 }
 
-.profile-info, .user-followers, .user-following, .users {
-  border: solid 1px #14171a;
-  border-radius: 15px;
-  margin: 10px 0 0 0;
-  background: white;
-  display: inline-block;
+.user-stream-item:not(:first-child) {
+  border-top: 1px solid #e8e8e8;
 }
 
-.profile-info {
-  width: 100%;
-}
-
-.users, .user-followers, .user-following {
-  width: 32%;
-  height: 420px;
-  background-color: white;
-  text-align: left;
-  padding-left: 10px;
-}
-
-
-
-.user-following {
-  float: right;
-}
-
-.profile-user-name {
-  display: inline;
-  padding-left: 10px;
-}
-
-.profile-user-email {
-  margin-top: 0;
-  color: #657786;
-  font-size: 18px;
-  padding-left: 10px;
-}
-
-.users, .user-followers, .user-following {
-  ol {
-    padding-left: 10px;
-    list-style: none;
-    height: 300px;
-    overflow: scroll;
-    width: 90%;
-  }
-
-  .user-stream-item {
-    padding: 10px 0;
-    background-color: white;
-  }
-
-  .user-stream-item:not(:first-child) {
-    border-top: 1px solid #e8e8e8;
-  }
+.register {
+	margin-bottom: 40px;
 }

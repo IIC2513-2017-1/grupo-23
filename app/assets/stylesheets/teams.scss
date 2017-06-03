@@ -1,18 +1,31 @@
-// Place all the styles related to the Teams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
+}
 
+.teams-stream{
+  @include background-tile;
+  width: 70%;
+  margin: auto;
+}
 
+.new-team-btn{
+  text-align: center;
+}
 
 /* Team styles */
 .team_shield {
   height: 100px;
   width: 100px;
 }
+
 .teams {
+    padding-top: 5px;
     float: left;
     width: 49%;
-    background: gray;
-    border-color: currentColor;
-    border-style: solid;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
 }

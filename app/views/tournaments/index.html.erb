@@ -1,30 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tournaments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Creador</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tournaments.each do |tournament| %>
+<div class="tournaments-stream">
+  <h1>Torneos</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to tournament.name, tournament %></td>
-        <td><%= tournament.user.name %></td>
-        <% if tournament.user == current_user%>
-        <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-        <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <th>Nombre</th>
+        <th>Creador</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @tournaments.each do |tournament| %>
+        <tr>
+          <td><%= link_to tournament.name, tournament %></td>
+          <td><%= tournament.user.name %></td>
+          <% if tournament.user == current_user%>
+          <td><%= link_to 'Edit', edit_tournament_path(tournament), class: "btn-custom2" %></td>
+          <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-custom2"%></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
-
-<%= link_to 'New Tournament', new_tournament_path %>
+<div class="new-tournament-btn">
+  <%= link_to 'Nuevo Torneo', new_tournament_path, class: 'btn-custom1' %>
+</div>
