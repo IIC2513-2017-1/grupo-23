@@ -53,8 +53,8 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
 	text-decoration: none;
-	color: #000;
 	outline: none;
+	color: #222;
 }
 
 
@@ -98,6 +98,7 @@ nav a, .name {
   text-align: center;
   display: block;
   padding: 30px 20px;
+	color: #222;
 }
 nav a:hover {
   color: #f1c40f;

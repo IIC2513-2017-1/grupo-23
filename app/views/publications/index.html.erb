@@ -1,6 +1,7 @@
-
-
-<div class="publications publication-stream">
+<div class="publication-stream">
+  <div class="new-publication-btn">
+    <%= link_to 'Nueva Publicación', new_publication_path %>
+  </div>
   <% if @publications %>
     <ol>
       <% @publications.each do |publication| %>
@@ -10,5 +11,4 @@
   <% else %>
     <p> No tienes publicaciones </p>
   <% end %>
-  <%= link_to 'Nueva Publicación', new_publication_path, class: 'btn-custom1' %>
 </div>
