@@ -1,5 +1,8 @@
+/*
+*= require_tree .
+*= require_self
+*/
 @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
-
 @mixin background-tile {
 	box-sizing: border-box;
 	background-color: #fff;
@@ -11,16 +14,35 @@
 html, body {
   margin: 0;
   padding: 0;
+	box-sizing: border-box;
+}
+
+p.alert, p.notice {
+	margin: 0;
 }
 
 body {
   font-family: Helvetica, 'Lora', serif;
-  background-color: #f5f5f5;
-  padding-top: 20px;
+	background-color: #f5f5f5;
+}
+
+.container {
+	margin: 0 auto;
+	padding-top: 20px;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+header {
+	width: 100%;
+	margin: 0;
 }
 
 main {
 	padding-top: 20px;
+	margin: auto;
+	min-height: 650px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,84 +50,73 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
 
-p.alert, p.notice {
-	margin: 0;
+a {
+	text-decoration: none;
+	color: #000;
+	outline: none;
 }
 
-.nav-wrapper{
-  width: 100%;
-}
 
 /* Menu styles */
 nav {
   font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
   text-transform: uppercase;
   background-color: #fff;
-	padding-bottom: 5px;
-  padding-top: 5px;
   color: #222;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: row wrap;
 }
 
-  nav li.nav-brand {
-    color: #222;
-    letter-spacing: 1.4px;
-  }
+.nav-brand {
+  letter-spacing: 4px;
+	font-weight: bold;
+	margin: 0 auto;
+}
 
 nav ul{
   list-style-type: none;
-  padding: 0;
   margin: 0 auto;
+	padding: 0;
+	align-items: center;
+	flex: 1 1 0;
+}
+
+nav ul.main-menu {
+	margin: 0 auto;
+	justify-content: flex-start;
+}
+nav ul.user-bar {
+	margin: 0 auto;
+	justify-content: flex-end;
 }
 
 nav a, .name {
-  text-decoration: none;
   text-align: center;
-  color: #222;
   display: block;
-  padding: 20px;
+  padding: 30px 20px;
 }
 nav a:hover {
   color: #f1c40f;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-/* Flex styles */
-nav ul{
-  flex: 1 1 0;
-}
 
 @media screen and (min-width: 768px){
-
   nav ul{
     display: flex;
   }
-
   nav li {
     flex: 1 1 0;
   }
-    nav {
-      display: flex;
-      justify-content: space-between;
-    }
-    .user-bar{
-      margin: 0;
-      max-width: 400px;
-    }
-    .main-menu{
-      margin: 0;
-      max-width: 1400px;
-    }
-}
-
-main {
-  margin: 0 15px;
 }
 
 footer {
   width: 90%;
   text-align: center;
   position: relative;
-  bottom: 0;
   left: 5%;
 }
 
@@ -113,76 +124,6 @@ footer {
   padding: 5px;
   display: inline-block;
   vertical-align: middle;
-}
-
-/* User styles */
-
-
-
-
-
-/* Publication styles */
-.publication_image {
-  height: 200px;
-  width: 200px;
-}
-.content {
-  display: block;
-}
-
-.publication-stream {
-  ol {
-		padding: 10px;
-    list-style: none;
-    overflow: scroll;
-    width: 97%;
-		height: 550px;
-		align-self: center;
-		display: block;
-  }
-  .publication-stream-item {
-    @include background-tile;
-		display: flex;
-		flex-flow: row wrap;
-		margin-bottom: 20px;
-		.publication-stream-item-left {
-			order: 1;
-			.publication-author-name {
-				a {
-					text-decoration: none;
-					color: #222;
-				}
-			}
-		}
-		.publication-stream-item-right {
-			order: 2;
-			padding-left: 10px;
-			display: flex;
-			flex-direction: column;
-		}
-		.publication-stream-comment {
-			order: 3;
-		}
-	}
-}
-.publications.publication-stream {
-  width: 99%;
-}
-.timestamp {
-	color: #8c8c8c;
-}
-
-/* Team styles */
-.team_shield {
-  height: 100px;
-  width: 100px;
-}
-.teams {
-    float: left;
-    width: 49%;
-    background: gray;
-    border-color: currentColor;
-    border-style: solid;
 }
 
 /* Other styles */
@@ -228,8 +169,4 @@ footer {
 		color: #fff;
 		transition: 0.5s;
 	}
-}
-
-.checkbox {
-	 display: grid;
 }

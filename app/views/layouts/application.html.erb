@@ -6,51 +6,52 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div class="nav-wrapper">
-        <nav>
-          <ul class="main-menu">
-            <li class="nav-brand"><%= link_to 'Supercampeones', root_path %></li>
-            <% if current_user %>
-              <li><%= link_to 'Perfil', current_user %></li>
-            <% end %>
-            <li><%= link_to 'Usuarios', users_path %></li>
-            <li><%= link_to 'Publicaciones', publications_path %></li>
-            <li><%= link_to 'Equipos', teams_path %></li>
-            <li><%= link_to 'Torneos', tournaments_path %></li>
-            <li><%= link_to 'Partidos', matches_path %></li>
-          </ul>
+    <div class="container">
+      <header>
+          <nav>
+            <ul class="main-menu">
+              <li class="nav-brand"><%= link_to 'Supercampeones', root_path %></li>
+              <% if current_user %>
+                <li><%= link_to 'Perfil', current_user %></li>
+              <% end %>
+              <li><%= link_to 'Usuarios', users_path %></li>
+              <li><%= link_to 'Publicaciones', publications_path %></li>
+              <li><%= link_to 'Equipos', teams_path %></li>
+              <li><%= link_to 'Torneos', tournaments_path %></li>
+              <li><%= link_to 'Partidos', matches_path %></li>
+            </ul>
 
-          <ul class="user-bar">
-            <% if current_user %>
-              <li class="name">Bienvenido, <%= current_user.name %></li>
-              <li><%= link_to 'Salir', session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to 'Ingresar', new_session_path %></li>
-              <li><%= link_to 'Registrarse', new_user_path %></li>
-            <% end %>
-          </ul>
-        </nav>
-    </div>
+            <ul class="user-bar">
+              <% if current_user %>
+                <li class="name">Bienvenido, <%= current_user.name %></li>
+                <li><%= link_to 'Salir', session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Ingresar', new_session_path %></li>
+                <li><%= link_to 'Registrarse', new_user_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+      </header>
 
-    <main>
-      <% [:alert, :notice].each do |flash_type| %>
-        <% if (flash_message = flash[flash_type]).present? %>
-          <div class="<%= flash_type %>"><%= flash_message %></div>
+      <main>
+        <% [:alert, :notice].each do |flash_type| %>
+          <% if (flash_message = flash[flash_type]).present? %>
+            <div class="<%= flash_type %>"><%= flash_message %></div>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= yield %>
-    </main>
+        <%= yield %>
+      </main>
 
-    <footer>
-      <hr>
-      <div id="project">© Supercampeones 2017</div>
-      <div id="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-          <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"/>
-        </a>
-      </div>
-    </footer>
+      <footer>
+        <hr>
+        <div id="project">© Supercampeones 2017</div>
+        <div id="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+            <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"/>
+          </a>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

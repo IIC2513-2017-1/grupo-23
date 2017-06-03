@@ -2,3 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+/* Team styles */
+.team_shield {
+  height: 100px;
+  width: 100px;
+}
+.teams {
+    float: left;
+    width: 49%;
+    background: gray;
+    border-color: currentColor;
+    border-style: solid;
+}

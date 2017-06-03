@@ -1,1 +1,60 @@
 
+
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
+}
+
+/* Publication styles */
+.publication_image {
+  height: 200px;
+  width: 200px;
+}
+.content {
+  display: block;
+}
+
+.publication-stream {
+  ol {
+		padding: 10px;
+    list-style: none;
+    overflow: scroll;
+    width: 97%;
+		height: 550px;
+		align-self: center;
+		display: block;
+  }
+  .publication-stream-item {
+    @include background-tile;
+		display: flex;
+		flex-flow: row wrap;
+		margin-bottom: 20px;
+		.publication-stream-item-left {
+			order: 1;
+			.publication-author-name {
+				a {
+					text-decoration: none;
+					color: #222;
+				}
+			}
+		}
+		.publication-stream-item-right {
+			order: 2;
+			padding-left: 10px;
+			display: flex;
+			flex-direction: column;
+		}
+		.publication-stream-comment {
+			order: 3;
+		}
+	}
+}
+.publications.publication-stream {
+  width: 99%;
+}
+.timestamp {
+	color: #8c8c8c;
+}

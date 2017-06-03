@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
 
-  
   protected
   def current_user
     return @current_user if defined?(@current_user)
