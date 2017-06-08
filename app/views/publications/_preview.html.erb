@@ -1,26 +1,25 @@
-<li class="publication-stream-item">
-  <div class "publication-content">
-    <div class="publication-stream-item-left">
+<li class="publication-stream-item tile">
+  <div class="publication-content">
       <% if publication.image.url != "/images/original/missing.png" %>
         <%= image_tag(publication.image, class: "publication_image") %>
       <% end %>
       <div class="author-info">
         <strong><%= link_to "#{publication.user.full_name}", publication.user %></strong>
+        <span class="timestamp">
+          posted <%= time_ago_in_words(publication.created_at) %> ago
+        </span>
       </div>
-      <span class="timestamp">
-        Posted <%= time_ago_in_words(publication.created_at) %> ago
-      </span>
-    </div>
-
-    <div class="publication-stream-item-right">
-      <span class="content">
+      <div class="content">
         <%= publication.content %>
-      </span>
-    </div>
+      </div>
   </div>
 
-  <div class="comments">
-    <%= render publication.comments %>
-    <%= link_to 'Comentar', new_publication_comment_path(publication), class: 'btn-custom2' %>
+  <div class="publication-comments">
+    <div class="comments">
+      <%= render publication.comments %>
+    </div>
+    <div class="comment-input">
+      <%= link_to 'Comentar', new_publication_comment_path(publication), class: 'btn-custom2' %>
+    </div>
   </div>
 </li>

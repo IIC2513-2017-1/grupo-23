@@ -23,6 +23,13 @@ u = User.create(
   password: '123456',
   juega: 1
 )
+u2 = User.create(
+  name: 'Jorge',
+  lastname: 'Trincado',
+  email: "jatrincado@uc.cl",
+  password: 'asdasd',
+  juega: 1
+)
 user_ids = User.pluck(:id)
 5.times do
   Team.create(

@@ -1,84 +1,59 @@
-
-@mixin background-tile {
-	box-sizing: border-box;
-	background-color: #fff;
-	border-radius: 5px;
-	box-shadow: 3px 3px 5px 6px #ccc;
-	padding: 1.5em 1.25em;
-}
-
 * {padding: 0; margin: 0;}
 
 /* Publication styles */
-
 .publication-stream {
 	width: 50%;
 	margin: auto;
 	min-width: 400px;
 	padding: 20px 0;
 	display: block;
+}
 
-	.new-publication-btn{
-		text-align: center;
-		margin-bottom: 40px;
-		a{
-			padding: 20px 80px;
-			color: darken(#f1c40f, 5%);
-			background-color: #fff;
-			border: 1px solid darken(#f1c40f, 5%);
-			border-radius: 5px;
-			font-family: 'Ubuntu', sans-serif;
-			text-decoration: none;
-			&:hover {
-				text-decoration: none;
-				background-color: darken(#f1c40f, 5%);
-				color: #fff;
-				transition: 0.5s;
-			}
-		}
-	}
-
-
-  .publication-stream-item {
-    @include background-tile;
-		margin: auto;
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 20px;
-
-		.publication-content{
-			
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			.publication-stream-item-left {
-
-				.publication_image {
-				  height: 200px;
-				  width: 200px;
-				}
-				.publication-author-name {
-					a {
-						text-decoration: none;
-						color: #222;
-					}
-				}
-			}
-			.publication-stream-item-right {
-				.content{
-					margin-bottom: 20px;
-				}
-			}
-		}
-
-		.comments {
-			align-items: center;
-			margin-top: 20px;
-			margin: auto;
+.new-publication-btn{
+	text-align: center;
+	margin-bottom: 40px;
+	a{
+		padding: 20px 80px;
+		color: white;
+		background-color: rgba(241, 196, 15, 0.6);
+		border: 1px solid darken(#f1c40f, 5%);
+		border-radius: 5px;
+		font-family: 'Ubuntu', sans-serif;
+		text-decoration: none;
+		&:hover {
+			background-color: #f1c40f;
 		}
 	}
 }
 
-.timestamp {
-	color: #8c8c8c;
+.publication-stream-item {
+	margin: auto;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+}
+
+.publication-content{
+	margin-bottom: 20px;
+}
+
+.publication_image {
+		height: 200px;
+		width: 200px;
+}
+.content{
+	padding-top: 20px;
+}
+.publication-comments {
+	padding-top: 20px;
+	text-align: center;
+	margin: auto;
+	background-color: #f2f2f2;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.comments{
+	text-align: left;
+}
+.comment-input{
+	padding-bottom: 20px;
 }
