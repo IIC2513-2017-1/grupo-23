@@ -1,25 +1,33 @@
+.form-style {
+	width: 500px;
+	margin: 0 auto;
+}
+
 form {
-  padding: 10px;
+  padding: 20px;
 }
 
 .actions {
-  margin-left: 320px;
+  text-align: center;
   input, button {
-    padding: 10px;
-    border: 1px solid #999;
-    background: #fff;
-    border-radius: 4px;
+    margin-top: 40px;
+    padding: 20px 80px;
+		color: white;
+		background-color: rgba(0, 0, 0, 0.6);
+		border: 1px solid darken(#f1c40f, 5%);
+		border-radius: 5px;
+		font-family: 'Ubuntu', sans-serif;
+		text-decoration: none;
     font-size: 20px;
-    &:hover {
-      background: #FFFBED;
-      cursor: pointer;
-    }
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+		}
   }
 }
 
 .field {
   margin-bottom: 20px;
-
+  text-align: center;
   label,
   input[type=text],
   input[type=password],
@@ -29,11 +37,12 @@ form {
     padding: 10px;
     font-size: 20px;
     border: none;
-    border-bottom: 1px solid #999;
     outline: none;
+    background-color: #f2f2f2;
   }
 
   label {
+    background: white;
     display: inline-block;
     text-align: right;
     border: none;

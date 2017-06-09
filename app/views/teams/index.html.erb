@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
 
-<div class="teams-stream">
+<div class="new-btn">
+  <%= link_to 'Nuevo Equipo', new_team_path %>
+</div>
+<div class="teams-stream tile">
   <h1>Teams</h1>
   <table>
     <tbody>
@@ -29,6 +31,3 @@
   <%end%>
 </div>
 <br>
-<div class="new-team-btn">
-  <%= link_to 'New Team', new_team_path , class: 'btn-custom1'%>
-</div>
