@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         UserMailer.new_user_email(@user).deliver_later
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Usuario creado' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: 422 }
@@ -40,8 +40,8 @@ class UsersController < ApplicationController
         if @team_id != @user.team_id
           UserMailer.new_seguidor_email(@user.team, @user).deliver_later
         end
-        
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+
+        format.html { redirect_to @user, notice: 'Usuario editado' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Usuario eliminado' }
       format.json { head :no_content }
     end
   end

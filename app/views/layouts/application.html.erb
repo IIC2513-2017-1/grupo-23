@@ -22,7 +22,9 @@
             </ul>
             <ul class="user-bar">
               <% if current_user %>
-                <li class="name">Bienvenido, <%= current_user.name %></li>
+                <div class="name">
+                <li>Bienvenido, <%= current_user.name %></li>
+                </div>
                 <li><%= link_to 'Salir', session_path, method: :delete %></li>
               <% else %>
                 <li><%= link_to 'Ingresar', new_session_path %></li>

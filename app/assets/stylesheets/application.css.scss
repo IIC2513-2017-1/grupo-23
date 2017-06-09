@@ -24,7 +24,6 @@ header {
 }
 
 .container {
-	margin: 0 auto;
 	width: 100%;
 	display: flex;
 	flex-flow: column wrap;
@@ -89,12 +88,17 @@ nav ul.user-bar {
 	justify-content: flex-end;
 }
 
-nav a, .name {
+nav a, .name{
   text-align: center;
   display: block;
   padding: 30px 20px;
 	color: #222;
 }
+
+nav li{
+  max-width: 400px;
+}
+
 nav a:hover {
   color: #f1c40f;
 }
@@ -105,6 +109,9 @@ nav a:hover {
   }
   nav li {
     flex: 1 1 0;
+  }
+  nav ul.user-bar {
+  	justify-content: center;
   }
 }
 
@@ -144,9 +151,10 @@ footer {
 	background-color: #fff;
 	border-radius: 5px;
 	padding: 1.5em 1.25em;
-}
-.tile:hover{
-	box-shadow: 0px 0px 3px 3px #ccc;
+  min-width: 300px;
+  &:hover{
+    box-shadow: 0px 0px 3px 3px #ccc;
+  }
 }
 
 .new-btn{
@@ -156,7 +164,7 @@ footer {
 		padding: 20px 80px;
 		color: white;
 		background-color: rgba(0, 0, 0, 0.6);
-		border: 1px solid darken(#f1c40f, 5%);
+		border: 1px solid #f1c40f;
 		border-radius: 5px;
 		font-family: 'Ubuntu', sans-serif;
 		text-decoration: none;

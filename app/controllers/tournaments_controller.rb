@@ -42,7 +42,7 @@ class TournamentsController < ApplicationController
               Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
             end
           end
-          format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
+          format.html { redirect_to @tournament, notice: 'Torneo creado' }
           format.json { render :show, status: :created, location: @tournament }
         else
           format.html { render :new }
@@ -50,7 +50,7 @@ class TournamentsController < ApplicationController
         end
       end
     else
-      redirect_to @tournament, notice: 'ingrese solo 6 partidos.'
+      redirect_to @tournament, notice: 'Ingrese sólo 6 partidos'
     end
 
   end
@@ -71,7 +71,7 @@ class TournamentsController < ApplicationController
               Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
             end
           end
-          format.html { redirect_to @tournament, notice: 'Tournament was successfully updated.' }
+          format.html { redirect_to @tournament, notice: 'Torneo editado' }
           format.json { render :show, status: :ok, location: @tournament }
         else
           format.html { render :edit }
@@ -79,7 +79,7 @@ class TournamentsController < ApplicationController
         end
       end
     else
-      redirect_to edit_tournament_path(@tournament), notice: 'ingrese solo 6 partidos.'
+      redirect_to edit_tournament_path(@tournament), notice: 'Ingrese sólo 6 partidos'
     end
 
   end
@@ -89,7 +89,7 @@ class TournamentsController < ApplicationController
   def destroy
     @tournament.destroy
     respond_to do |format|
-      format.html { redirect_to tournaments_url, notice: 'Tournament was successfully destroyed.' }
+      format.html { redirect_to tournaments_url, notice: 'Torneo eliminado' }
       format.json { head :no_content }
     end
   end
