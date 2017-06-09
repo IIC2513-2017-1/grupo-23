@@ -1,6 +1,8 @@
-<div class="new-btn">
-  <%= link_to 'Nuevo Torneo', new_tournament_path %>
-</div>
+<% if current_user %>
+  <div class="new-btn">
+    <%= link_to 'Nuevo Torneo', new_tournament_path %>
+  </div>
+<% end %>
 <div class="tournaments-stream tile">
 
   <h1>Torneos</h1>

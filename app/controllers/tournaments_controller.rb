@@ -1,12 +1,13 @@
 class TournamentsController < ApplicationController
+  include Secured
   before_action :set_tournament, only: [:show, :edit, :update, :destroy]
   before_action :is_current_user?, only: [:edit ,:update ,:destroy]
-  before_action :is_set_current_user?, only: [:create, :new]
+  before_action :logged_in?, only: %i[new create edit update destroy]
 
   # GET /tournaments
   # GET /tournaments.json
   def index
-    @tournaments = Tournament.all 
+    @tournaments = Tournament.all
     if params.has_key?(:user_id)
       @tournaments = Tournament.where(user_id: params[:user_id])
     end
@@ -59,7 +60,7 @@ class TournamentsController < ApplicationController
   def update
     if params[:tournament][:team_ids].size == 7
       respond_to do |format|
-        
+
         if @tournament.update(tournament_params)
           team = params[:tournament][:team_ids]
           @tournament.matches.each do |l|
@@ -80,7 +81,7 @@ class TournamentsController < ApplicationController
     else
       redirect_to edit_tournament_path(@tournament), notice: 'ingrese solo 6 partidos.'
     end
-    
+
   end
 
   # DELETE /tournaments/1
@@ -102,12 +103,6 @@ class TournamentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tournament_params
       params.require(:tournament).permit(:name)
-    end
-
-    def is_set_current_user?
-      unless current_user
-        redirect_to(tournaments_path, alert: '¡Acceso no autorizado!')
-      end
     end
 
     def is_current_user?

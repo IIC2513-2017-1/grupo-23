@@ -122,6 +122,21 @@ footer {
   vertical-align: middle;
 }
 
+.flash{
+  width: 300px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  padding: 20px 20px;
+}
+.alert{
+  background: rgba(160, 0, 0, 0.9);
+}
+
+.notice{
+  background: rgba(0, 160, 0, 0.9);
+}
+
 /* Other styles */
 
 .tile{

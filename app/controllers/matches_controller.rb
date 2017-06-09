@@ -1,7 +1,9 @@
 class MatchesController < ApplicationController
+  include Secured
   before_action :set_match, only: [:show, :edit, :update, :destroy]
   before_action :is_created_by_current_user?, only: [:edit ,:update ,:destroy]
-
+  before_action :logged_in?, only: %i[new create edit update destroy]
+  
   # GET /matches
   # GET /matches.json
   def index
@@ -29,7 +31,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to @match, notice: 'Partido creado' }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class MatchesController < ApplicationController
   def update
     respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to @match, notice: 'Partido editado' }
         format.json { render :show, status: :ok, location: @match }
       else
         format.html { render :edit }
@@ -57,7 +59,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     respond_to do |format|
-      format.html { redirect_to matches_url, notice: 'Match was successfully destroyed.' }
+      format.html { redirect_to matches_url, notice: 'Partido eliminado' }
       format.json { head :no_content }
     end
   end

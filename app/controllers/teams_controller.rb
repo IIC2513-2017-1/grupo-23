@@ -1,7 +1,9 @@
 class TeamsController < ApplicationController
+  include Secured
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :is_current_user?, only: [:edit ,:update ,:destroy]
-  before_action :is_set_current_user?, only: [:create, :new]
+  before_action :logged_in?, only: %i[new create edit update destroy]
+
   # GET /teams
   # GET /teams.json
   def index
@@ -71,11 +73,6 @@ class TeamsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:name, :group, :shield)
-    end
-    def is_set_current_user?
-      unless current_user
-        redirect_to(teams_path, alert: '¡Acceso no autorizado!')
-      end
     end
 
     def is_current_user?
