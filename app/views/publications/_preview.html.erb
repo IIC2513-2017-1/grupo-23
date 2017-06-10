@@ -15,11 +15,16 @@
   </div>
 
   <div class="publication-comments">
-    <div class="comments">
-      <%= render publication.comments %>
-    </div>
-    <div class="comment-input">
-      <%= link_to 'Comentar', new_publication_comment_path(publication), class: 'btn-custom2' %>
-    </div>
+      <%= form_for([publication, publication.comments.build]) do |f| %>
+        <div class="comment-actions"><%= f.submit %></div>
+        <div class="comment-field">
+          <%= f.text_field :content, required: true %>
+        </div>
+      <% end %>
+    <% if publication.comments.size > 1 %>
+      <div class="comments">
+          <%= render publication.comments.reverse_order %>
+      </div>
+    <% end %>
   </div>
 </li>

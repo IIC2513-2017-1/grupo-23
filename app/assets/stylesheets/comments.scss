@@ -1,3 +1,29 @@
 .comment{
-  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e8e8e8;
+  &:last-child{
+    border-bottom: none;
+  }
+}
+.author-comment{
+  margin-bottom: 10px;
+  padding-top: 15px;
+}
+.content-comment{
+  display: flex;
+  justify-content: space-between;
+  p{
+    font-size: 20px;
+    display: block;
+    max-width: 240px;
+    word-wrap: break-word;
+  }
+}
+.comment-btns{
+  a{
+    color: darken(#f1c40f, 5%);
+    &:hover{
+      color: #f1c40f;
+    }
+  }
 }

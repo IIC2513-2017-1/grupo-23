@@ -1,14 +1,20 @@
 <div class="comment">
-  <strong><%= link_to "#{comment.user.full_name}", comment.user %></strong>
-  <span class="timestamp">
-    posted <%= time_ago_in_words(comment.created_at) %> ago
-  </span>
-  <p><%= comment.content %></p>
+  <div class="author-comment">
+    <strong><%= link_to "#{comment.user.full_name}", comment.user %></strong>
+    <span class="timestamp">
+      posted <%= time_ago_in_words(comment.created_at) %> ago
+    </span>
+  </div>
 
-  <% if current_user %>
-    <% if comment.user_id == current_user.id %>
-      <%= link_to "Editar comentario", edit_publication_comment_path(comment.publication, comment) , class: 'btn-custom2'%>
-      <%= link_to "Eliminar comentario", publication_comment_path(comment.publication, comment) , class: 'btn-custom2', method: :delete, data: {confirm: "¿Estás seguro?"}%>
-    <% end %>
-  <% end %>
+  <div class="content-comment">
+    <p><%= comment.content %></p>
+    <div class="comment-btns">
+      <% if current_user %>
+        <% if comment.user_id == current_user.id %>
+          <%= link_to "Editar", edit_publication_comment_path(comment.publication, comment) %>
+          <%= link_to "Eliminar", publication_comment_path(comment.publication, comment) , method: :delete, data: {confirm: "¿Estás seguro?"}%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

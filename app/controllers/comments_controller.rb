@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to publications_path, notice: 'Comentario creado' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { redirect_to publications_path, alert: 'Comentario no creado' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

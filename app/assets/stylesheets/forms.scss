@@ -10,7 +10,7 @@ form {
 .actions {
   text-align: center;
   input, button {
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 20px 80px;
 		color: white;
 		background-color: rgba(0, 0, 0, 0.6);
@@ -60,5 +60,42 @@ form {
     .error-message {
       margin-left: 10px;
     }
+  }
+}
+
+.comment-field{
+	width: 400px;
+	margin: auto;
+	text-align: center;
+	input[type=text], textarea {
+		width: 380px;
+		padding: 10px;
+		font-size: 20px;
+		border: none;
+		outline: none;
+		background-color: white;
+	}
+	.field_with_errors, &.error {
+    display: inline-block;
+    input[type=text], .error-message {color: red;}
+    input[type=text]{border-color: red;}
+    .error-message {margin-left: 10px;}
+  }
+}
+.comment-actions{
+  text-align: center;
+	margin-bottom: 20px;
+  input, button {
+    padding: 10px 30px;
+		color: white;
+		background-color: rgba(0, 0, 0, 0.6);
+		border: 1px solid darken(#f1c40f, 5%);
+		border-radius: 5px;
+		font-family: 'Ubuntu', sans-serif;
+		text-decoration: none;
+    font-size: 20px;
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+		}
   }
 }

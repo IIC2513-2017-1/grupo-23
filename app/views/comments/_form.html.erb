@@ -1,4 +1,9 @@
-<%= simple_form_for([@publication, @publication.comments.build]) do |f| %>
-  <%= f.input :content, required: true %>
-  <%= f.button :submit , :class => 'btn-custom2'%>
-<% end %>
+
+  <%= simple_form_for([@publication, @publication.comments.build]) do |f| %>
+    <div class="comment-field">
+      <%= f.input :content, required: true %>
+    </div>
+    <div class="comment-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
