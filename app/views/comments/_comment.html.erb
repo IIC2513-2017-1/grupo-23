@@ -1,4 +1,4 @@
-<div class="comment">
+<div class="comment" data-comment-id="<%=comment.id%>">
   <div class="author-comment">
     <strong><%= link_to "#{comment.user.full_name}", comment.user %></strong>
     <span class="timestamp">
@@ -11,8 +11,8 @@
     <div class="comment-btns">
       <% if current_user %>
         <% if comment.user_id == current_user.id %>
-          <%= link_to "Editar", edit_publication_comment_path(comment.publication, comment) %>
-          <%= link_to "Eliminar", publication_comment_path(comment.publication, comment) , method: :delete, data: {confirm: "¿Estás seguro?"}%>
+          <%= link_to "Editar", publication_comment_path(comment.publication, comment), remote: true %>
+          <%= link_to "Eliminar", publication_comment_path(comment.publication, comment) , method: :delete, remote: true, data: {confirm: "¿Estás seguro?"}%>
         <% end %>
       <% end %>
     </div>

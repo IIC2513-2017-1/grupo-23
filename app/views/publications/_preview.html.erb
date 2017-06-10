@@ -15,11 +15,13 @@
   </div>
 
   <div class="publication-comments">
-      <%= form_for([publication, publication.comments.build]) do |f| %>
-        <div class="comment-actions"><%= f.submit %></div>
-        <div class="comment-field">
-          <%= f.text_field :content, required: true %>
-        </div>
+      <% if current_user %>
+        <%= form_for([publication, publication.comments.build], remote: true) do |f| %>
+          <div class="comment-actions"><%= f.submit %></div>
+          <div class="comment-field">
+            <%= f.text_field :content, required: true %>
+          </div>
+        <% end %>
       <% end %>
     <% if publication.comments.size > 1 %>
       <div class="comments">
