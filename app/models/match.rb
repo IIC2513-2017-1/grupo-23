@@ -2,7 +2,7 @@ class Match < ApplicationRecord
   validates :date, presence: true, allow_blank: false
 
 
- has_many :goals
+ has_many :goals, dependent: :destroy
  has_many :users, through: :goals
  belongs_to :tournament
  belongs_to :local, :class_name => 'Team', :foreign_key => 'local_id'

@@ -1,23 +1,63 @@
 
-<% x = Goal.find_by(user_id: j.id, match_id: match.id) %>
-<% if x %>
-    <form action="/goals/update" method="post">
-    <div style="display:none">
-    <input type="text" name="match_id" value=<%= match.id%>>
-    <input type="text" name="goal_id" value=<%= x.id%>>
-    </div>
-    Cantidad de Goles
-    <input type="number" name="cantidad" value=<%= x.cantidad%>>
-    <input type="submit" value="Submit">
-    </form> 
+
+
+ <% if current_user%>
+    <%if @match.tournament.user_id == current_user[:id]%>
+        <% x = Goal.find_by(user_id: j.id, match_id: match.id) %>
+        <% if x %>
+            <form action="/goals/update" method="post">
+            <td>
+            <div style="display:none">
+            <input type="text" name="match_id" value=<%= match.id%>>
+            <input type="text" name="goal_id" value=<%= x.id%>>
+            </div>
+            
+            <input type="number" name="cantidad" value=<%= x.cantidad%>>
+            </td>
+            <td>
+            <input type="submit" value="Submit">
+            </td>
+            </form> 
+        <%else%>
+            <form action="/goals/new" method="post">
+            <td>
+            <div style="display:none">
+            <input type="text" name="match_id" value=<%= match.id%>>
+            <input type="text" name="user_id" value=<%= j.id%>>
+            </div>
+            
+            <input type="number" name="cantidad" value="0">
+            </td>
+            <td>
+            <input type="submit" value="Submit">
+            </td>
+            </form> 
+        <%end%>
+    <%else%>
+        <% x = Goal.find_by(user_id: j.id, match_id: @match.id) %>
+        <% if x %>
+            <td>
+            <%= x.cantidad%>
+            </td>
+            <td></td>
+        <%else%>
+            <td>0</td>
+            <td></td>
+    <%end%>
+    <%end%>
 <%else%>
-    <form action="/goals/new" method="post">
-    <div style="display:none">
-    <input type="text" name="match_id" value=<%= match.id%>>
-    <input type="text" name="user_id" value=<%= j.id%>>
-    </div>
-    Cantidad de Goles
-    <input type="number" name="cantidad" value="0">
-    <input type="submit" value="Submit">
-    </form> 
+    <% x = Goal.find_by(user_id: j.id, match_id: @match.id) %>
+    <% if x %>
+        <th>
+        <%= x.cantidad%>
+        </th>
+        <th></th>
+    <%else%>
+        <th>0</th>
+        <th></th>
+    <%end%>
 <%end%>
+
+
+
+        

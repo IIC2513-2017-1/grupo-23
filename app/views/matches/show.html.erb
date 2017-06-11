@@ -13,61 +13,70 @@
   <strong>Date:</strong>
   <%= @match.date %>
 </p>
-
+<br>
 <p>
 
   <% if gvisitnates > glocales %>
-    <strong>Ganador <%= @match.visitor.name %> </strong>
+    <strong>Ganador</strong> <%= @match.visitor.name %> 
   <% elsif gvisitnates < glocales %>
-    <strong>Ganador <%= @match.local.name %> </strong>
+    <strong>Ganador</strong> <%= @match.local.name %> 
   <%else%>
     <strong>Empate</strong>
   <% end %>
   
 </p>
-
+<br>
+<p>
+  <strong>Local:</strong>
+  <%= @match.local.name %>
+  <br> goles : <%= glocales%>
+</p>
+<br>
 <p>
   <strong>Visitor:</strong>
   <%= @match.visitor.name %>
   <br> goles : <%= gvisitnates%>
 </p>
 
-<p>
-  <strong>Local:</strong>
-  <%= @match.local.name %>
-  <br> goles : <%= glocales%>
-</p>
-<h3> Jugadores de <%= @match.local.name %> </h3>
-<% @match.local.users.each do |j| %>
 
+  <br><br>
+<h3> Jugadores de <%= @match.local.name %> </h3>
+<table>
+ <tr>
+    <th>Jugador</th>
+    <th>Goles</th>
+    <th></th>
+ <tr>
+<% @match.local.users.each do |j| %>
+    <tr>
      <%if j.juega == 1%>
-       <li style="list-style:none; margin-left: 20px">
-       <br>
+        <th>
         <%= j.name  %>
-        <% if current_user%>
-          <%if @match.tournament.user_id == current_user[:id]%>
-            <%= render "fromm", match: @match, j:j%>
-          <%end%>
-        <%end%>
-      </li>
+        </th>
+        <%= render "fromm", match: @match, j:j%>
        
      <%end%> 
+     </tr>
 <% end %>
+</table>
+<br><br><br>
 <h3> Jugadores de <%= @match.visitor.name %> </h3>
+<table>
+ <tr>
+    <th>Jugador</th>
+    <th>Goles</th>
+    <th></th>
+ <tr>
 <% @match.visitor.users.each do |j| %>
-     
+    <tr>
      <%if j.juega == 1%>
-       <li style="list-style:none; margin-left: 20px">
-       <br>
+        <th>
         <%= j.name  %>
-        <% if current_user%>
-          <%if @match.tournament.user_id == current_user[:id]%>
-            <%= render "fromm", match: @match, j:j%>
-          <%end%>
-        <%end%>
-      </li>
+        </th>
+        <%= render "fromm", match: @match, j:j%>
      <%end%> 
+     </tr>
 <% end %>
-
+</table>
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>

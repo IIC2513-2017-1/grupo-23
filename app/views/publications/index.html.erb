@@ -1,15 +1,13 @@
 <div class="publication-stream">
   <% if current_user %>
-    <div class="new-btn new-btn-publication">
-      <div class = "register">
-      <div class="form-style tile">
-        <h1>Nueva Publicacion</h1>
-      </div>
-    </div>
+    <div class="new-btn">
+
+        <a>Nueva Publicacion</a>
+
     </div>
     <div class="form-style tile hidden new">
-          <%= render 'form', publication: Publication.new %>
-        </div>
+        <%= render 'form', publication: Publication.new %>
+    </div>
   <% end %>
   <br>
   <% if @publications %>

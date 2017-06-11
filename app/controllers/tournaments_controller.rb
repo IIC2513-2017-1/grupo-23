@@ -97,10 +97,15 @@ class TournamentsController < ApplicationController
   # DELETE /tournaments/1
   # DELETE /tournaments/1.json
   def destroy
+    @tournament.matches.each do |m|
+      m.destroy
+    end
+     @tournament.participates.each do |p| p.destroy end
     @tournament.destroy
     respond_to do |format|
       format.html { redirect_to tournaments_url, notice: 'Torneo eliminado' }
       format.json { head :no_content }
+      format.js
     end
   end
 

@@ -1,8 +1,17 @@
-<% if current_user %>
-  <div class="new-btn">
-    <%= link_to 'Nuevo Partido', new_match_path %>
-  </div>
-<% end %>
+  <% if current_user %>
+    <% if current_user.tournament_ids%>
+      <div class="new-btn">
+
+          <a>Nuevo Partido</a>
+
+      </div>
+      <div class="form-style tile hidden new">
+          <%@match = Match.new%>
+          <%= render 'form' %>
+      </div>
+    <% end %>
+  <% end %>
+  <br>
 <div class="matches-stream tile">
   <h1>Partidos</h1>
   <table>

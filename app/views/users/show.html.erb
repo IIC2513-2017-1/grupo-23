@@ -14,9 +14,17 @@
 
 <div class="user-activity">
   <div class="publication-stream user">
+    <% if current_user %>
     <div class="new-btn">
-      <%= link_to 'Nueva Publicación', new_publication_path %>
+
+        <a>Nueva Publicacion</a>
+
     </div>
+    <div class="form-style tile hidden new">
+        <%= render 'pform', publication: Publication.new %>
+    </div>
+    <br>
+  <% end %>
     <ol>
       <% @user.publications.reverse.each do |p| %>
         <%= render 'publications/preview', publication: p %>

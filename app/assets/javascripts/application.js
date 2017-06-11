@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+    $('.new-btn').on('click', function() {
+        var link = $(document).find(".new");
+        if (link.hasClass("hidden")) {
+            link.removeClass("hidden")
+        } else {
+            link.addClass("hidden")
+        }
+    });
+    $('.defaultOpen').click();
+});

@@ -1,7 +1,16 @@
 <% if current_user %>
-  <div class="new-btn">
-    <%= link_to 'Nuevo Equipo', new_team_path %>
-  </div>
+  <% unless current_user.team %>
+    <div class="new-btn">
+
+        <a>Nuevo Equipo</a>
+
+    </div>
+    <div class="form-style tile hidden new">
+        <% @team = Team.new%>
+        <%= render 'form' %>
+    </div>
+  <% end %>
+  <br>
 <% end %>
 <div class="teams-stream tile">
   <h1>Teams</h1>
