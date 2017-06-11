@@ -1,9 +1,17 @@
 <div class="publication-stream">
   <% if current_user %>
-    <div class="new-btn">
-      <%= link_to 'Nueva Publicación', new_publication_path %>
+    <div class="new-btn new-btn-publication">
+      <div class = "register">
+      <div class="form-style tile">
+        <h1>Nueva Publicacion</h1>
+      </div>
     </div>
+    </div>
+    <div class="form-style tile hidden new">
+          <%= render 'form', publication: Publication.new %>
+        </div>
   <% end %>
+  <br>
   <% if @publications %>
     <ol>
       <% @publications.reverse.each do |publication| %>
