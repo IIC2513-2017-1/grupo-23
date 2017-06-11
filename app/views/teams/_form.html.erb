@@ -1,15 +1,14 @@
+
+
 <%= simple_form_for(@team) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name, required: true %>
+  <div class="field">
+    <%= f.input :name, required: true, label: 'Nombre' %>
   </div>
-
-  <div class="form-inputs">
+  <div class="field">
     <%= f.file_field :shield, required: true %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="actions">
+    <%= f.submit 'Crear equipo' %>
   </div>
 <% end %>

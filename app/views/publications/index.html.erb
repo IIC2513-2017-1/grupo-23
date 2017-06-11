@@ -6,7 +6,7 @@
   <% end %>
   <% if @publications %>
     <ol>
-      <% @publications.each do |publication| %>
+      <% @publications.reverse.each do |publication| %>
         <%= render 'publications/preview', publication: publication %>
       <% end %>
     </ol>

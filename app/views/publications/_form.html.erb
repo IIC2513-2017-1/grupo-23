@@ -1,7 +1,11 @@
 <%= simple_form_for(@publication) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.file_field :image %>
-  <%= f.input :content, required: true %>
-  <%= f.button :submit , :class => 'btn-custom2'%>
+  <div class="field"><%= f.file_field :image %></div>
+  <div class="field">
+  <%= f.input :content, required: true, label: 'Contenido' %>
+  </div>
+  <div class="actions">
+  <%= f.submit 'Crear publicación' %>
+  </div>
 <% end %>

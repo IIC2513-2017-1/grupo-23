@@ -4,7 +4,7 @@
   <h2 class="profile-user-email"><%= @user.email %></h2>
   <%if @user.team%>
     <%if @user.juega == 1%>
-      <h2 class="profile-user-team"> jugador de:
+      <h2 class="profile-user-team"> Jugador de:
     <%else%>
       <h2 class="profile-user-team"> Hincha de:
     <%end%>
@@ -14,12 +14,13 @@
 
 <div class="user-activity">
   <div class="publication-stream user">
-    <h2>Publicaciones: <%= @user.publications.size %></h2>
+    <div class="new-btn">
+      <%= link_to 'Nueva Publicación', new_publication_path %>
+    </div>
     <ol>
-      <% @user.publications.each do |p| %>
+      <% @user.publications.reverse.each do |p| %>
         <%= render 'publications/preview', publication: p %>
       <% end %>
     </ol>
-    <%= link_to 'Nueva Publicación', new_publication_path, class: 'button-custom1' %>
-  </div>
+    </div>
 </div>

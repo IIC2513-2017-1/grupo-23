@@ -11,7 +11,7 @@
     <div class="comment-btns">
       <% if current_user %>
         <% if comment.user_id == current_user.id %>
-          <%= link_to "Editar", publication_comment_path(comment.publication, comment), remote: true %>
+          <%= link_to "Editar", edit_publication_comment_path(comment.publication, comment) %>
           <%= link_to "Eliminar", publication_comment_path(comment.publication, comment) , method: :delete, remote: true, data: {confirm: "¿Estás seguro?"}%>
         <% end %>
       <% end %>

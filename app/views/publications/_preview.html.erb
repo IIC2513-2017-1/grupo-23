@@ -17,7 +17,7 @@
   <div class="publication-comments">
       <% if current_user %>
         <%= form_for([publication, publication.comments.build], remote: true) do |f| %>
-          <div class="comment-actions"><%= f.submit %></div>
+          <div class="comment-actions"><%= f.submit 'Comentar'%></div>
           <div class="comment-field">
             <%= f.text_field :content, required: true %>
           </div>

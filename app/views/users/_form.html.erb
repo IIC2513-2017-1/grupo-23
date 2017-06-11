@@ -13,36 +13,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label 'Nombre' %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :lastname %>
+    <%= f.label 'Apellido' %>
     <%= f.text_field :lastname %>
   </div>
 
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label 'Correo' %>
     <%= f.email_field :email, required: true %>
   </div>
   <div class="field">
-      <%= f.label :juega, '¿es jugador?' %>
+      <%= f.label :juega, '¿Es jugador?' %>
       <%= f.check_box :juega %>
   </div>
-
-
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label 'Contraseña' %>
     <%= f.password_field :password, required: true %>
   </div>
-
   <div class="field">
-    <%= f.label :password_confirmation %>
+    <%= f.label 'Confirmar contraseña' %>
     <%= f.password_field :password_confirmation, required: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Ingresar'%>
   </div>
 <% end %>
