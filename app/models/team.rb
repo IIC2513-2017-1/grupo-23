@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_attached_file :shield, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://lorempixel.com/100/100"
+  has_attached_file :shield, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "https://www.opensourcealternative.org/wp-content/uploads/2014/03/shield-730x430.png"
   validates_attachment_content_type :shield, content_type: /\Aimage\/.*\z/
   validates :name, presence: true, uniqueness: true,
    length: { minimum: 3, maximum: 20 }, allow_blank: false

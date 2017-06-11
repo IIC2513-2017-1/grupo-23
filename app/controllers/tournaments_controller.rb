@@ -7,7 +7,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments
   # GET /tournaments.json
   def index
-    @tournaments = Tournament.all
+    @tournaments = Tournament.all.order(:user_id)
     if params.has_key?(:user_id)
       @tournaments = Tournament.where(user_id: params[:user_id])
     end
@@ -37,9 +37,14 @@ class TournamentsController < ApplicationController
       respond_to do |format|
         if @tournament.save
           team = params[:tournament][:team_ids]
+          @tournament.team_ids = team
           (1..6).each do |x|
             (x + 1..6).each do |y|
-              Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+              if [0, 1].sample == 1
+                Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+              else
+                Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[y]).id, local_id:Team.find(team[x]).id)
+              end
             end
           end
           format.html { redirect_to @tournament, notice: 'Torneo creado' }
@@ -66,9 +71,14 @@ class TournamentsController < ApplicationController
           @tournament.matches.each do |l|
             l.destroy
           end
+          @tournament.team_ids = team
           (1..6).each do |x|
             (x + 1..6).each do |y|
-              Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+              if [0, 1].sample == 1
+                Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[x]).id, local_id:Team.find(team[y]).id)
+              else
+                Match.create(date:"00/00/0000 ",tournament_id: Tournament.last.id,visitor_id:Team.find(team[y]).id, local_id:Team.find(team[x]).id)
+              end  
             end
           end
           format.html { redirect_to @tournament, notice: 'Torneo editado' }

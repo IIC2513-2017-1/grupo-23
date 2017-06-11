@@ -4,11 +4,6 @@
   <div class="field">
     <%= f.input :date, required: true, label: 'Fecha' %>
     <br>
-    <% if @match.visitor %>
-      <%= f.label :Ganador %>
-      <%= f.collection_select :ganador_id, Team.where("id = ? or id = ?", @match.visitor_id, @match.local_id), :id, :name %>
-      <br>
-    <% end %>
     <%= f.label :Visitante %>
     <%= f.collection_select :visitor_id, Team.all, :id, :name %>
     <br>
@@ -16,7 +11,7 @@
     <%= f.collection_select :local_id, Team.all, :id, :name %>
     <br>
     <%= f.label :Torneo %>
-    <%= f.collection_select :tournament_id, Tournament.all, :id, :name %>
+    <%= f.collection_select :tournament_id, Tournament.where(user_id: current_user[:id]), :id, :name %>
     <br>
   </div>
 

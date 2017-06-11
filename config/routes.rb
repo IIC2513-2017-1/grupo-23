@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
   resources :users do
     resources :tournaments
-    end
+  end
+  post "goals/new" => "goals#create"
+  post "goals/update" => "goals#update"
   resource :session, only: [:new, :create, :destroy]
   root 'welcome#index'
 end

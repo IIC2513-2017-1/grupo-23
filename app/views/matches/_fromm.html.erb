@@ -1,0 +1,23 @@
+
+<% x = Goal.find_by(user_id: j.id, match_id: match.id) %>
+<% if x %>
+    <form action="/goals/update" method="post">
+    <div style="display:none">
+    <input type="text" name="match_id" value=<%= match.id%>>
+    <input type="text" name="goal_id" value=<%= x.id%>>
+    </div>
+    Cantidad de Goles
+    <input type="number" name="cantidad" value=<%= x.cantidad%>>
+    <input type="submit" value="Submit">
+    </form> 
+<%else%>
+    <form action="/goals/new" method="post">
+    <div style="display:none">
+    <input type="text" name="match_id" value=<%= match.id%>>
+    <input type="text" name="user_id" value=<%= j.id%>>
+    </div>
+    Cantidad de Goles
+    <input type="number" name="cantidad" value="0">
+    <input type="submit" value="Submit">
+    </form> 
+<%end%>

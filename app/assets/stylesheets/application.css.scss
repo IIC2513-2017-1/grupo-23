@@ -2,216 +2,234 @@
 *= require_tree .
 *= require_self
 */
-@import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
 
-html, body {
-  margin: 0;
-  padding: 0;
+@import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
-p.alert, p.notice {
-	margin: 0;
+p.alert,
+p.notice {
+    margin: 0;
 }
 
 body {
-  font-family: Helvetica, 'Lora', serif;
-	background-image: url('grass.jpg');
-	background-attachment: fixed;
+    font-family: Helvetica, 'Lora', serif;
+    background-image: url('grass.jpg');
+    background-attachment: fixed;
 }
 
 header {
-	background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .container {
-	width: 100%;
-	display: flex;
-	flex-flow: column wrap;
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 main {
-	margin: auto;
-	min-height: 650px;
-	width: 100%;
-	margin-top: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+    margin: auto;
+    min-height: 650px;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Ubuntu', sans-serif;
-	font-weight: 300;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
 }
 
 a {
-	text-decoration: none;
-	outline: none;
-	color: #222;
+    text-decoration: none;
+    outline: none;
+    color: #222;
 }
 
 
 /* Menu styles */
+
 nav {
-	margin-top: 20px;
-	margin-bottom: 20px;
-  font-family: 'Ubuntu', sans-serif;
-	font-size: 20px;
-  text-transform: uppercase;
-	background-color: white;
-  color: #222;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-flow: row wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: white;
+    color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
 }
 
 .nav-brand {
-  letter-spacing: 4px;
-	font-weight: bold;
-	margin: 0 auto;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin: 0 auto;
 }
 
-nav ul{
-  list-style-type: none;
-  margin: 0 auto;
-	padding: 0;
-	align-items: center;
-	flex: 1 1 0;
+nav ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    align-items: center;
+    flex: 1 1 0;
 }
 
 nav ul.main-menu {
-	margin: 0 auto;
-	justify-content: flex-start;
+    margin: 0 auto;
+    justify-content: flex-start;
 }
+
 nav ul.user-bar {
-	margin: 0 auto;
-	justify-content: flex-end;
+    margin: 0 auto;
+    justify-content: flex-end;
 }
 
-nav a, .name{
-  text-align: center;
-  display: block;
-  padding: 30px 20px;
-	color: #222;
+nav a,
+.name {
+    text-align: center;
+    display: block;
+    padding: 30px 20px;
+    color: #222;
 }
 
-nav li{
-  max-width: 400px;
+nav li {
+    max-width: 400px;
 }
 
 nav a:hover {
-  color: #f1c40f;
+    color: #f1c40f;
 }
 
-@media screen and (min-width: 768px){
-  nav ul{
-    display: flex;
-  }
-  nav li {
-    flex: 1 1 0;
-  }
-  nav ul.user-bar {
-  	justify-content: center;
-  }
+@media screen and (min-width: 768px) {
+    nav ul {
+        display: flex;
+    }
+    nav li {
+        flex: 1 1 0;
+    }
+    nav ul.user-bar {
+        justify-content: center;
+    }
 }
 
 footer {
-  width: 90%;
-  text-align: center;
-  position: relative;
-  left: 5%;
-	color: white;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    left: 5%;
+    color: white;
 }
 
-#license, #project {
-  padding: 5px;
-  display: inline-block;
-  vertical-align: middle;
+#license,
+#project {
+    padding: 5px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.flash{
-  width: 300px;
-  text-align: center;
-  color: white;
-  border-radius: 5px;
-  padding: 20px 20px;
-}
-.alert{
-  background: rgba(160, 0, 0, 0.9);
+.flash {
+    width: 300px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    padding: 20px 20px;
 }
 
-.notice{
-  background: rgba(0, 160, 0, 0.9);
+.alert {
+    background: rgba(160, 0, 0, 0.9);
 }
+
+.notice {
+    background: rgba(0, 160, 0, 0.9);
+}
+
 
 /* Other styles */
 
-.tile{
-	box-sizing: border-box;
-	background-color: #fff;
-	border-radius: 5px;
-	padding: 1.5em 1.25em;
-  min-width: 300px;
-  &:hover{
-    box-shadow: 0px 0px 3px 3px #ccc;
-  }
+.tile {
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1.5em 1.25em;
+    min-width: 300px;
+    &:hover {
+        box-shadow: 0px 0px 3px 3px #ccc;
+    }
 }
 
-.new-btn{
-	text-align: center;
-	margin-bottom: 40px;
-	a{
-		padding: 20px 80px;
-		color: white;
-		background-color: rgba(0, 0, 0, 0.6);
-		border: 1px solid #f1c40f;
-		border-radius: 5px;
-		font-family: 'Ubuntu', sans-serif;
-		text-decoration: none;
-		&:hover {
-			background-color: rgba(0, 0, 0, 0.8);
-		}
-	}
+.new-btn {
+    text-align: center;
+    margin-bottom: 40px;
+    a {
+        padding: 20px 80px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        border: 1px solid #f1c40f;
+        border-radius: 5px;
+        font-family: 'Ubuntu', sans-serif;
+        text-decoration: none;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
 }
 
 .stream-item {
-	margin: auto;
-	margin-bottom: 20px;
-	box-sizing: border-box;
+    margin: auto;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .btn-custom1 {
-	color: darken(#f1c40f, 5%);
-	background-color: #fff;
-	border: 1px solid darken(#f1c40f, 5%);
-	padding: 8px 20px;
-	border-radius: 5px;
-	font-family: 'Ubuntu', sans-serif;
-	text-decoration: none;
-	&:hover {
-		text-decoration: none;
-		background-color: darken(#f1c40f, 5%);
-		color: #fff;
-	}
+    color: darken(#f1c40f, 5%);
+    background-color: #fff;
+    border: 1px solid darken(#f1c40f, 5%);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        background-color: darken(#f1c40f, 5%);
+        color: #fff;
+    }
 }
 
 .btn-custom2 {
-  display: inline-block;
-	color: #333;
-	background-color: #fff;
-	border: 1px solid #222;
-	padding: 8px 20px;
-	border-radius: 5px;
-	font-family: 'Ubuntu', sans-serif;
-	text-decoration: none;
-	&:hover {
-		text-decoration: none;
-		background-color: #333;
-		color: #fff;
-	}
+    display: inline-block;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #222;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        background-color: #333;
+        color: #fff;
+    }
 }
 
 .timestamp {
-	color: #8c8c8c;
-	margin-left: 10px;
+    color: #8c8c8c;
+    margin-left: 10px;
+}
+
+.p80 {
+    width: 60%;
+    margin-left: 20%;
 }

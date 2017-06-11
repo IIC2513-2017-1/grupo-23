@@ -1,4 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="matches-stream tile">
+<% gvisitnates = 0%>
+<% glocales = 0%>
+<% Goal.where(match_id:@match.id).each do |g| %>
+  <% if @match.visitor.user_ids.include?(g.user_id)%>
+    <% gvisitnates += g.cantidad%>
+  <%else%>
+    <% glocales += g.cantidad%>
+  <%end%>
+<%end%>
 
 <p>
   <strong>Date:</strong>
@@ -6,9 +15,13 @@
 </p>
 
 <p>
-  <% if @match.ganador %>
-    <strong>Ganador:</strong>
-    <%= @match.ganador.name %>
+
+  <% if gvisitnates > glocales %>
+    <strong>Ganador <%= @match.visitor.name %> </strong>
+  <% elsif gvisitnates < glocales %>
+    <strong>Ganador <%= @match.local.name %> </strong>
+  <%else%>
+    <strong>Empate</strong>
   <% end %>
   
 </p>
@@ -16,12 +29,45 @@
 <p>
   <strong>Visitor:</strong>
   <%= @match.visitor.name %>
+  <br> goles : <%= gvisitnates%>
 </p>
 
 <p>
   <strong>Local:</strong>
   <%= @match.local.name %>
+  <br> goles : <%= glocales%>
 </p>
+<h3> Jugadores de <%= @match.local.name %> </h3>
+<% @match.local.users.each do |j| %>
+
+     <%if j.juega == 1%>
+       <li style="list-style:none; margin-left: 20px">
+       <br>
+        <%= j.name  %>
+        <% if current_user%>
+          <%if @match.tournament.user_id == current_user[:id]%>
+            <%= render "fromm", match: @match, j:j%>
+          <%end%>
+        <%end%>
+      </li>
+       
+     <%end%> 
+<% end %>
+<h3> Jugadores de <%= @match.visitor.name %> </h3>
+<% @match.visitor.users.each do |j| %>
+     
+     <%if j.juega == 1%>
+       <li style="list-style:none; margin-left: 20px">
+       <br>
+        <%= j.name  %>
+        <% if current_user%>
+          <%if @match.tournament.user_id == current_user[:id]%>
+            <%= render "fromm", match: @match, j:j%>
+          <%end%>
+        <%end%>
+      </li>
+     <%end%> 
+<% end %>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>
