@@ -15,6 +15,20 @@ end
 end
 @grades = @grades.to_a.sort{|x,y| y[1] <=> x[1] }
 %>
+<%
+@goleadores = Hash.new
+@tournament.teams.each do |t|
+  t.users.where(juega:1).each do |j|
+    @goleadores[j.name] = 0
+  end
+end
+@tournament.matches.each do |m|
+  m.goals.each do |g|
+    @goleadores[g.user.name] += g.cantidad
+  end
+end
+@goleadores = @goleadores.to_a.sort{|x,y| y[1] <=> x[1] }
+%>
   <p><strong>Torneo <%= @tournament.name %></strong></p>
 
   <div class="position-table">
@@ -37,6 +51,32 @@ end
             <td><%= team[0] %></td>
             <td><%= team[1] %></td>
           </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="position-table">
+    <h3>Tabla de Goleadores</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>POS.</th>
+          <th>Jugador</th>
+          <th>Goles.</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% count = 0 %>
+        <%@goleadores.each do |j| %>
+          <% if j[1] != 0%>
+          <tr>
+            <% count += 1 %>
+            <td><%= count %></td>
+            <td><%= j[0] %></td>
+            <td><%= j[1] %></td>
+          </tr>
+          <%end%>
         <% end %>
       </tbody>
     </table>
