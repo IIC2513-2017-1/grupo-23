@@ -1,17 +1,21 @@
-
-
 .checkbox {
-	 display: grid;
+    display: grid;
 }
 
-.new-tournament-btn{
-	text-align: center;
+.new-tournament-btn {
+    text-align: center;
 }
 
-.tournaments-stream{
-	width: 30%;
-	margin: auto;
-	td{
-		padding-left: 20px;
-	}
+.tournaments-stream {
+    width: 30%;
+    margin: auto;
+    td {
+        padding-left: 20px;
+    }
+}
+
+.position-table {
+    float: left;
+    margin-left: 15%;
+    margin-right: 15%;
 }
