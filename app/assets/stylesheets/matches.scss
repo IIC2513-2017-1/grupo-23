@@ -1,9 +1,45 @@
+.matches-container{
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.matches-left{
+	width: 30%;
+}
+
+.matches-center{
+	width: 40%;
+
+}
+.matches-right{
+	width: 30%;
+
+}
+.matches-weather {
+	width: 50%;
+	margin: 0 auto;
+
+}
 
 
 .matches-stream{
-	width: 50%;
+	width: 100%;
 	margin: auto;
 	td{
 		padding-left: 20px;
 	}
+}
+
+.weather-tab{
+	display: block;
+	margin: 0 auto;
+}
+
+.tablinks{
+	margin-bottom: 30px;
+}
+
+.tabcontent{
+	display: none;
 }

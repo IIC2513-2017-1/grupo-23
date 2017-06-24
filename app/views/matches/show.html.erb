@@ -1,86 +1,106 @@
-<div class="matches-stream tile">
-<% gvisitnates = 0%>
-<% glocales = 0%>
-<% Goal.where(match_id:@match.id).each do |g| %>
-  <% if @match.visitor.user_ids.include?(g.user_id)%>
-    <% gvisitnates += g.cantidad%>
-  <%else%>
-    <% glocales += g.cantidad%>
-  <%end%>
-<%end%>
-
-<p>
-  <strong>Date:</strong>
-  <%= @match.date %>
-</p>
-<br>
-<p><strong>Tiempo:</strong></p>
-<input type="submit" data-url="https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9T1BFSEhKM2dmYWc3JmQ9WVdrOWFUSjNhRzVqTjJVbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD02Yg--&redirect_uri=oob&response_type=code&language=en-us" data-remote="true">
-
-<br>
-<p>
-
-  <% if gvisitnates > glocales %>
-    <strong>Ganador</strong> <%= @match.visitor.name %>
-  <% elsif gvisitnates < glocales %>
-    <strong>Ganador</strong> <%= @match.local.name %>
-  <%else%>
-    <strong>Empate</strong>
-  <% end %>
-
-</p>
-<br>
-<p>
-  <strong>Local:</strong>
-  <%= @match.local.name %>
-  <br> goles : <%= glocales%>
-</p>
-<br>
-<p>
-  <strong>Visitor:</strong>
-  <%= @match.visitor.name %>
-  <br> goles : <%= gvisitnates%>
-</p>
+<!--
+<div class="matches-tab">
 
 
-  <br><br>
-<h3> Jugadores de <%= @match.local.name %> </h3>
-<table>
- <tr>
-    <th>Jugador</th>
-    <th>Goles</th>
-    <th></th>
- <tr>
-<% @match.local.users.each do |j| %>
-    <tr>
-     <%if j.juega == 1%>
-        <th>
-        <%= j.name  %>
-        </th>
-        <%= render "fromm", match: @match, j:j%>
+  <input type="submit" data-url="https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9T1BFSEhKM2dmYWc3JmQ9WVdrOWFUSjNhRzVqTjJVbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD02Yg--&redirect_uri=oob&response_type=code" data-remote="true">
 
-     <%end%>
-     </tr>
-<% end %>
-</table>
-<br><br><br>
-<h3> Jugadores de <%= @match.visitor.name %> </h3>
-<table>
- <tr>
-    <th>Jugador</th>
-    <th>Goles</th>
-    <th></th>
- <tr>
-<% @match.visitor.users.each do |j| %>
-    <tr>
-     <%if j.juega == 1%>
-        <th>
-        <%= j.name  %>
-        </th>
-        <%= render "fromm", match: @match, j:j%>
-     <%end%>
-     </tr>
-<% end %>
-</table>
-<%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+</div>
+-->
+<div class="matches-container">
+  <div class="matches-left">
+    <button class="tablinks weather-tab tab-btn" data-tab="matches-weather">Tiempo</button>
+
+    <div class="matches-weather tabcontent tile">
+      <p>PROBANDO EL TAB WEATHER</p>
+    </div>
+  </div>
+  <div class="matches-center">
+    <div class="matches-stream tile">
+      <% gvisitnates = 0%>
+      <% glocales = 0%>
+      <% Goal.where(match_id:@match.id).each do |g| %>
+        <% if @match.visitor.user_ids.include?(g.user_id)%>
+          <% gvisitnates += g.cantidad%>
+        <%else%>
+          <% glocales += g.cantidad%>
+        <%end%>
+      <%end%>
+
+      <p>
+        <strong>Date:</strong>
+        <%= @match.date %>
+      </p>
+      <br>
+
+      <p>
+      <% if gvisitnates > glocales %>
+        <strong>Ganador</strong> <%= @match.visitor.name %>
+      <% elsif gvisitnates < glocales %>
+        <strong>Ganador</strong> <%= @match.local.name %>
+      <%else%>
+        <strong>Empate</strong>
+      <% end %>
+      </p>
+      <br>
+      <p>
+        <strong>Local:</strong>
+        <%= @match.local.name %>
+        <br> goles : <%= glocales%>
+      </p>
+      <br>
+      <p>
+        <strong>Visitor:</strong>
+        <%= @match.visitor.name %>
+        <br> goles : <%= gvisitnates%>
+      </p>
+
+
+      <br><br>
+      <h3> Jugadores de <%= @match.local.name %> </h3>
+      <table>
+       <tr>
+          <th>Jugador</th>
+          <th>Goles</th>
+          <th></th>
+       <tr>
+      <% @match.local.users.each do |j| %>
+          <tr>
+           <%if j.juega == 1%>
+              <th>
+              <%= j.name  %>
+              </th>
+              <%= render "fromm", match: @match, j:j%>
+
+           <%end%>
+           </tr>
+      <% end %>
+      </table>
+      <br><br><br>
+      <h3> Jugadores de <%= @match.visitor.name %> </h3>
+      <table>
+       <tr>
+          <th>Jugador</th>
+          <th>Goles</th>
+          <th></th>
+       <tr>
+      <% @match.visitor.users.each do |j| %>
+          <tr>
+           <%if j.juega == 1%>
+              <th>
+              <%= j.name  %>
+              </th>
+              <%= render "fromm", match: @match, j:j%>
+           <%end%>
+           </tr>
+      <% end %>
+      </table>
+      <%= link_to 'Edit', edit_match_path(@match) %> |
+      <%= link_to 'Back', matches_path %>
+    </div>
+  </div>
+  <div class="matches-right">
+    <div class="matches-map tabcontent tile">
+      <p>Derecha</p>
+    </div>
+  </div>
+</div>

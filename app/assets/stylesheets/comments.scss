@@ -20,6 +20,7 @@
   }
 }
 .comment-btns{
+  cursor: pointer;
   a{
     color: darken(#f1c40f, 5%);
     &:hover{
