@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="field">
-    <%= f.input :date, required: true, label: 'Fecha' %>
+    <%= f.date_field :date, required: true, label: 'Fecha' %>
     <br>
     <%= f.label :Visitante %>
     <%= f.collection_select :visitor_id, Team.all, :id, :name %>

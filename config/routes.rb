@@ -13,4 +13,13 @@ Rails.application.routes.draw do
   post "goals/update" => "goals#update"
   resource :session, only: [:new, :create, :destroy]
   root 'welcome#index'
+  namespace :api do
+    namespace :v1 do
+      resources :teams, only: [:index, :show]
+      resources :publications, only: [:index, :create]
+      resources :users, only: [:show]
+      resources :tournaments, only: [:index, :show]
+      resources :matches, only: [:show]
+    end
+  end
 end
