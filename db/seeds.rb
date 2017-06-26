@@ -23,6 +23,7 @@ u = User.create(
   password: '123456',
   juega: 1
 )
+u.generate_token_and_save
 u2 = User.create(
   name: 'Jorge',
   lastname: 'Trincado',
@@ -30,6 +31,7 @@ u2 = User.create(
   password: 'asdasd',
   juega: 1
 )
+u2.generate_token_and_save
 user_ids = User.pluck(:id)
 5.times do
   Team.create(
