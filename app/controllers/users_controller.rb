@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        @user.generate_token_and_save
         UserMailer.new_user_email(@user).deliver_later
         format.html { redirect_to @user, notice: 'Usuario creado' }
         format.json { render :show, status: :created, location: @user }

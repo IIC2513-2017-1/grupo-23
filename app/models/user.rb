@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  before_create :generate_token_and_save
   validates :email, presence: true, uniqueness: true, allow_blank: false,
                     format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
