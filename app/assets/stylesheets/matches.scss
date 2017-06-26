@@ -20,7 +20,14 @@
 	margin: 0 auto;
 }
 
-.matches-stream{
+.matches-stream {
+	width: 50%;
+	margin: auto;
+	td{
+		padding-left: 20px;
+	}
+}
+.matches-stream-item{
 	width: 100%;
 	margin: auto;
 	td{
