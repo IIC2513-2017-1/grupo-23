@@ -12,7 +12,7 @@ class Match < ApplicationRecord
   gvisitnates = 0
   glocales = 0
   Goal.where(match_id:id).each do |g|
-    
+
     if  visitor.user_ids.include?(g.user_id)
       gvisitnates += g.cantidad
     else
@@ -25,10 +25,9 @@ class Match < ApplicationRecord
     else
       @x = "Empate"
     end
-    
+
    end
    return @x
  end
-
 
 end

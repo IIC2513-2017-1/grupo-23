@@ -2,17 +2,17 @@
 <div class="matches-tab">
 
 
-  <input type="submit" data-url="https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9T1BFSEhKM2dmYWc3JmQ9WVdrOWFUSjNhRzVqTjJVbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD02Yg--&redirect_uri=oob&response_type=code" data-remote="true">
 
 </div>
 -->
 <div class="matches-container">
   <div class="matches-left">
-    <button class="tablinks weather-tab tab-btn" data-tab="matches-weather">Tiempo</button>
+    <button class="tablinks weather-tab tab-btn" data-tab="matches-weather" data-date="<%=@match.date%>">Tiempo</button>
 
     <div class="matches-weather tabcontent tile">
-      <p>PROBANDO EL TAB WEATHER</p>
+      <p id="weather-result">Cargando datos</p>
     </div>
+
   </div>
   <div class="matches-center">
     <div class="matches-stream tile">

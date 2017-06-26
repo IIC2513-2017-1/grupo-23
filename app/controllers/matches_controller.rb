@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
   before_action :is_created_by_current_user?, only: [:edit ,:update ,:destroy]
   before_action :logged_in?, only: %i[new create edit update destroy]
-  
+
   # GET /matches
   # GET /matches.json
   def index
@@ -14,6 +14,8 @@ class MatchesController < ApplicationController
   # GET /matches/1.json
   def show
   end
+
+
 
   # GET /matches/new
   def new
