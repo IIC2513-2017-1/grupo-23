@@ -40,7 +40,7 @@ end
 </div>
 
 <div class="user-activity">
-  <div class="tweet-stream tabcontent">
+  <div class="tweet-stream contenido">
     
   <div class="position-table">
     <h3>Tabla de posiciones</h3>
@@ -68,7 +68,7 @@ end
   </div>
   </div>
 
-  <div class="user-followers tabcontent">
+  <div class="user-followers contenido">
     <div class="position-table">
     <h3>Tabla de Goleadores</h3>
     <table>
@@ -97,7 +97,7 @@ end
   </div>
   </div>
 
-  <div class="user-following tabcontent">
+  <div class="user-following contenido">
     <div class="matches-table">
     <h3>Partidos jugados</h3>
     <table>
@@ -137,8 +137,8 @@ end
     var link = $(this);
     var tab = $('.' + link.data('tab'));
 
-    // Get all elements with class="tabcontent" and hide them
-    $(".tabcontent").each(function() {$(this).hide()});
+    // Get all elements with class="contenido" and hide them
+    $(".contenido").each(function() {$(this).hide()});
 
     // Get all elements with class="tablinks" and remove the class "active"
     $('.tablinks').each(function() {
