@@ -20,6 +20,24 @@ ol{
 
 .publication-content{
 	margin-bottom: 20px;
+	display: flex;
+  justify-content: space-between;
+  p{
+    font-size: 20px;
+    display: block;
+    max-width: 240px;
+    word-wrap: break-word;
+  }
+}
+
+.publication-btns{
+  cursor: pointer;
+  a{
+    color: darken(#f1c40f, 5%);
+    &:hover{
+      color: #f1c40f;
+    }
+  }
 }
 
 .publication_image {
