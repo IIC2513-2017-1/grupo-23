@@ -20,11 +20,9 @@ ol{
 
 .publication-content{
 	margin-bottom: 20px;
-	display: flex;
-  justify-content: space-between;
   p{
     font-size: 20px;
-    display: block;
+    display: inline-block;
     max-width: 240px;
     word-wrap: break-word;
   }
