@@ -34,9 +34,9 @@ end
 
 
 <div class="tab">
-  <button class="tablinks defaultOpen" data-tab="tweet-stream">Posisicones</button>
-  <button class="tablinks" data-tab="user-followers">Goleadores</button>
-  <button class="tablinks" data-tab="user-following">Partidos</button>
+  <button class="link defaultOpen" data-tab="tweet-stream">Posisicones</button>
+  <button class="link" data-tab="user-followers">Goleadores</button>
+  <button class="link" data-tab="user-following">Partidos</button>
 </div>
 
 <div class="user-activity">
@@ -133,15 +133,15 @@ end
 
   <script>
 
-  $('.tablinks').on('click', function() {
+  $('.link').on('click', function() {
     var link = $(this);
     var tab = $('.' + link.data('tab'));
 
     // Get all elements with class="contenido" and hide them
     $(".contenido").each(function() {$(this).hide()});
 
-    // Get all elements with class="tablinks" and remove the class "active"
-    $('.tablinks').each(function() {
+    // Get all elements with class="link" and remove the class "active"
+    $('.link').each(function() {
       $(this).removeClass('active');
     });
 
