@@ -31,6 +31,17 @@ end
 %>
   <p><strong>Torneo <%= @tournament.name %></strong></p>
 
+
+
+<div class="tab">
+  <button class="tablinks defaultOpen" data-tab="tweet-stream">Posisicones</button>
+  <button class="tablinks" data-tab="user-followers">Goleadores</button>
+  <button class="tablinks" data-tab="user-following">Partidos</button>
+</div>
+
+<div class="user-activity">
+  <div class="tweet-stream tabcontent">
+    
   <div class="position-table">
     <h3>Tabla de posiciones</h3>
     <table>
@@ -55,7 +66,10 @@ end
       </tbody>
     </table>
   </div>
-  <div class="position-table">
+  </div>
+
+  <div class="user-followers tabcontent">
+    <div class="position-table">
     <h3>Tabla de Goleadores</h3>
     <table>
       <thead>
@@ -81,9 +95,10 @@ end
       </tbody>
     </table>
   </div>
+  </div>
 
-
-  <div class="matches-table">
+  <div class="user-following tabcontent">
+    <div class="matches-table">
     <h3>Partidos jugados</h3>
     <table>
       <thead>
@@ -113,6 +128,14 @@ end
     </table>
   </div>
 
+</div>
+
+
+  
+
+
+  <%if current_user%>
   <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+  <%end%>
   <%= link_to 'Back', tournaments_path %>
 </div>
