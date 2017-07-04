@@ -23,8 +23,9 @@ ol{
 }
 
 .publication_image {
-		height: 200px;
-		width: 200px;
+		max-height: 500px;
+		max-width: 500px;
+		margin: 0 auto;
 }
 .content{
 	padding-top: 20px;
