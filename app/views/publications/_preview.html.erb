@@ -15,8 +15,8 @@
           <% if current_user %>
             <% if publication.user_id == current_user.id %>
               <%= link_to "Editar", edit_publication_path(publication) %>
-              <%= link_to "Eliminar", publication_path(publication) , method: :delete,  data: {confirm: "¿Estás seguro?"}%>
-
+              <%= link_to "Eliminar", publication , method: :delete,  data: {confirm: "¿Estás seguro?"}%>
+            <% end %>
           <% end %>
         </div>
       </div>
